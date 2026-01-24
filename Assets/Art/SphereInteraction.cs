@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 public class SphereInteraction : MonoBehaviour
 {
-    public Canvas aiCanvas;
+    public GameObject aiCanvas;
     public Canvas expandedCanvas;
 
     public float speed = 5f;
@@ -17,7 +17,7 @@ public class SphereInteraction : MonoBehaviour
 
     void Start()
     {
-        aiCanvas.enabled = false;
+        aiCanvas.SetActive(false);
         expandedCanvas.enabled = false;
         originalPosition = transform.position;
     }
@@ -29,19 +29,19 @@ public class SphereInteraction : MonoBehaviour
 
         if (zoomed && !wasZoomed)
         {
-            aiCanvas.enabled = true;
+            aiCanvas.SetActive(true);
             Debug.Log("Zooming In");
         }
         else if (!zoomed && wasZoomed)
         {
-            aiCanvas.enabled = false;
+            aiCanvas.SetActive(false);
             Debug.Log("Zooming Out");
         }
 
         if (expandMessage && zoomed)
         {
             expandedCanvas.enabled = true;
-            aiCanvas.enabled = false;
+            aiCanvas.SetActive(false);
             Debug.Log("Expanding Message");
         }
         else
