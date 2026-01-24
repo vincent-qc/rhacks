@@ -56,7 +56,6 @@ public class GCloudPubSubManager : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("[GmailPubSub] Starting...");
         StartCoroutine(LoadCredentialsAndLogin());
     }
 

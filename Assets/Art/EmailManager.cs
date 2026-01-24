@@ -28,7 +28,7 @@ public class EmailManager : MonoBehaviour
             Audio.GenerateAudio(summary, (audioClip) =>
             {
                 Vector3 spawnPos = GeneratePosition();
-                GameObject newSphere = Instantiate(emailSpherePrefab, spawnPos, Quaternion.identity);
+                // GameObject newSphere = Instantiate(emailSpherePrefab, spawnPos, Quaternion.identity);
 
                 if (Camera.main != null)
                 {
@@ -48,13 +48,12 @@ public class EmailManager : MonoBehaviour
     private Vector3 GeneratePosition()
     {
         if (Camera.main == null) return transform.position;
-
+      
         Transform camTransform = Camera.main.transform;
 
         // Random offsets to keep it in FOV but not dead center
         float xOffset = UnityEngine.Random.Range(-0.5f, 0.5f);
         float yOffset = UnityEngine.Random.Range(-0.2f, 0.2f); // Keep height variation smaller
-
         Vector3 randomOffset = (camTransform.right * xOffset) + (camTransform.up * yOffset);
 
         return camTransform.position + (camTransform.forward * spawnDistance) + randomOffset;
