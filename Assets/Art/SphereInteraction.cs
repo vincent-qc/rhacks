@@ -79,6 +79,7 @@ public class SphereInteraction : MonoBehaviour
                 aiContentInput,
                 aiDateInput
             );
+            Audio.PlaySound(aiContentInput);
             aiCanvas.SetActive(true);
             Debug.Log("Zooming In");
         }
