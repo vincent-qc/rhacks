@@ -12,6 +12,8 @@ public class EmailSphere : MonoBehaviour
     [SerializeField] private TextMeshProUGUI fullContent;
     [SerializeField] private TextMeshProUGUI aiContent;
 
+    private AudioClip cachedAudioClip;
+
     public void Initialize(string sender, string subject, string body)
     {
         this.sender = sender;
@@ -19,6 +21,38 @@ public class EmailSphere : MonoBehaviour
         this.body = body;
 
         UpdateText();
+    }
+
+    public void Initialize(string sender, string subject, string body, AudioClip audioClip)
+    {
+        this.sender = sender;
+        this.subject = subject;
+        this.body = body;
+        this.cachedAudioClip = audioClip;
+
+        UpdateText();
+    }
+
+    public void SetAudioClip(AudioClip clip)
+    {
+        cachedAudioClip = clip;
+    }
+
+    public void PlayCachedAudio()
+    {
+        if (cachedAudioClip != null)
+        {
+            Audio.PlayClipIfNotPlaying(cachedAudioClip);
+        }
+        else
+        {
+            UnityEngine.Debug.LogWarning("No cached audio clip available for this email sphere.");
+        }
+    }
+
+    public bool HasCachedAudio()
+    {
+        return cachedAudioClip != null;
     }
 
     private void UpdateText()

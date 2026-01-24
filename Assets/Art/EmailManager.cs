@@ -25,20 +25,23 @@ public class EmailManager : MonoBehaviour
         {
             string summary = analysis?.summary ?? email.snippet;
 
-            Vector3 spawnPos = GeneratePosition();
-            GameObject newSphere = Instantiate(emailSpherePrefab, spawnPos, Quaternion.identity);
-
-            if (Camera.main != null)
+            Audio.GenerateAudio(summary, (audioClip) =>
             {
-                newSphere.transform.LookAt(Camera.main.transform);
-                newSphere.transform.Rotate(0, 180, 0);
-            }
+                Vector3 spawnPos = GeneratePosition();
+                GameObject newSphere = Instantiate(emailSpherePrefab, spawnPos, Quaternion.identity);
 
-            EmailSphere sphere = newSphere.GetComponent<EmailSphere>();
-            if (sphere != null)
-            {
-                sphere.Initialize(email.from, email.subject, summary);
-            }
+                if (Camera.main != null)
+                {
+                    newSphere.transform.LookAt(Camera.main.transform);
+                    newSphere.transform.Rotate(0, 180, 0);
+                }
+
+                EmailSphere sphere = newSphere.GetComponent<EmailSphere>();
+                if (sphere != null)
+                {
+                    sphere.Initialize(email.from, email.subject, summary, audioClip);
+                }
+            });
         });
     }
 
