@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 1187517743283382134}
   - component: {fileID: 1280777014270916976}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: Profile Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -814,7 +814,7 @@ GameObject:
   - component: {fileID: 1324638021555831830}
   - component: {fileID: 2952507023293684093}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Circle Mask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1352,7 +1352,7 @@ GameObject:
   - component: {fileID: 7686314212336145933}
   - component: {fileID: 1719085474175431645}
   m_Layer: 5
-  m_Name: profileCanvas
+  m_Name: Profile Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1775,7 +1775,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 29c267c2f33d2436b9529f4f2d350051, type: 3}
       propertyPath: m_Name
-      value: sphere_uv
+      value: Contents
       objectReference: {fileID: 0}
     - target: {fileID: 6317578925029434746, guid: 29c267c2f33d2436b9529f4f2d350051, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'

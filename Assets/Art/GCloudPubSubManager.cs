@@ -167,26 +167,13 @@ public class GCloudPubSubManager : MonoBehaviour
             {
                 foreach (var messageRef in listResponse.messages)
                 {
-                    yield return StartCoroutine(FetchAndPrintEmailDetails(messageRef.id));
+                    yield return StartCoroutine(FetchEmailById(messageRef.id));
                 }
             }
         }
     }
 
-    private IEnumerator FetchAndPrintEmailDetails(string messageId)
-    {
-        string url = $"https://gmail.googleapis.com/gmail/v1/users/me/messages/{messageId}";
-        using (UnityWebRequest request = CreateGetRequest(url))
-        {
-            yield return request.SendWebRequest();
-            if (request.result == UnityWebRequest.Result.Success)
-            {
-                Message message = JsonUtility.FromJson<Message>(request.downloadHandler.text);
-                EmailData emailData = ParseEmailData(message);
-                Debug.Log($"Title: {emailData.subject}, Content: {emailData.snippet}");
-            }
-        }
-    }
+
 
     public IEnumerator SetupGmailWatch()
     {
