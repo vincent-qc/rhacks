@@ -326,6 +326,7 @@ IL2CPP_EXTERN_C String_t* _stringLiteral64058CC688A96A90239811EF06C9D20DB0499C3E
 IL2CPP_EXTERN_C String_t* _stringLiteral64E6BFF51AA5F52FE1D0A696BAB1C229C018DDD6;
 IL2CPP_EXTERN_C String_t* _stringLiteral65DAC746F424577F6C9AC7FF4A9966F0FF7784BE;
 IL2CPP_EXTERN_C String_t* _stringLiteral6A1D52382547009AB732F651FE2CA42F1BBA769A;
+IL2CPP_EXTERN_C String_t* _stringLiteral6A3B188CE522F17C633812651F0C84D8C8DE794C;
 IL2CPP_EXTERN_C String_t* _stringLiteral6C00B98F12B0C558FE9D144FB1818D110944710C;
 IL2CPP_EXTERN_C String_t* _stringLiteral6D616BAD371FCA22A131D77150DEC154C6148FC5;
 IL2CPP_EXTERN_C String_t* _stringLiteral6EB43023AF7E3481CD15B504B17A482AD205AFD0;
@@ -362,6 +363,7 @@ IL2CPP_EXTERN_C String_t* _stringLiteralA079342A790B55DC431B75988744176F105139A7
 IL2CPP_EXTERN_C String_t* _stringLiteralA44A39671D4B7FA8FBE50D795EAB52248D5C5469;
 IL2CPP_EXTERN_C String_t* _stringLiteralA77FDC67CD3D8A6113B858540BA409191CDF979E;
 IL2CPP_EXTERN_C String_t* _stringLiteralA7E855C55DDDAEB50CF06721728C05C85BEAAE98;
+IL2CPP_EXTERN_C String_t* _stringLiteralA8564F4644711E96A0BE32F103065EBEA8F40870;
 IL2CPP_EXTERN_C String_t* _stringLiteralAE1B3CB371C9291D34EB334456EBC01AC8284947;
 IL2CPP_EXTERN_C String_t* _stringLiteralAE6299F91DAA0F344C6731281B03FB38284D0CB9;
 IL2CPP_EXTERN_C String_t* _stringLiteralB133E4949D2E27443DC424DDF3742B9CC98CAC2B;
@@ -376,6 +378,7 @@ IL2CPP_EXTERN_C String_t* _stringLiteralBBDD84D7AC5E2DA5511FC4EBC63C59E815FB41D8
 IL2CPP_EXTERN_C String_t* _stringLiteralBCBA5A02C955FD5AD470609B7E6A714FFDD62807;
 IL2CPP_EXTERN_C String_t* _stringLiteralBD4BFF803683C337A3DB0D4B5A93E006DF6BA5DC;
 IL2CPP_EXTERN_C String_t* _stringLiteralC271F970D9513BA26B7BEF900281B8411024E09E;
+IL2CPP_EXTERN_C String_t* _stringLiteralC2ABD53443E87B1D4332B55DE89F3F4C04D71253;
 IL2CPP_EXTERN_C String_t* _stringLiteralC2DA60AE96E2C9EF3EAF20897A5AA957AFDF64EC;
 IL2CPP_EXTERN_C String_t* _stringLiteralC7B4D926EF9532A71B25AEC040A33D52C926425F;
 IL2CPP_EXTERN_C String_t* _stringLiteralCBBF31FF1812F5B040817D7E266EEA45FFB15E43;
@@ -2572,6 +2575,8 @@ struct EmailSphere_t13E3F2253D30B8E1B56D1C74D8758AF65FFAE612  : public MonoBehav
 	String_t* ___subject;
 	String_t* ___body;
 	String_t* ___sender;
+	TextMeshProUGUI_t101091AF4B578BB534C92E9D1EEAF0611636D957* ___fullContent;
+	TextMeshProUGUI_t101091AF4B578BB534C92E9D1EEAF0611636D957* ___aiContent;
 };
 struct GCloudPubSubManager_t04A5D2E7EE77EE001B6E21974C7E644533B894B1  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
@@ -3142,6 +3147,40 @@ struct ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031  : public RuntimeArr
 		m_Items[index] = value;
 	}
 };
+struct StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248  : public RuntimeArray
+{
+	ALIGN_FIELD (8) String_t* m_Items[1];
+
+	inline String_t* GetAt(il2cpp_array_size_t index) const
+	{
+		IL2CPP_ARRAY_BOUNDS_CHECK(index, (uint32_t)(this)->max_length);
+		return m_Items[index];
+	}
+	inline String_t** GetAddressAt(il2cpp_array_size_t index)
+	{
+		IL2CPP_ARRAY_BOUNDS_CHECK(index, (uint32_t)(this)->max_length);
+		return m_Items + index;
+	}
+	inline void SetAt(il2cpp_array_size_t index, String_t* value)
+	{
+		IL2CPP_ARRAY_BOUNDS_CHECK(index, (uint32_t)(this)->max_length);
+		m_Items[index] = value;
+		Il2CppCodeGenWriteBarrier((void**)m_Items + index, (void*)value);
+	}
+	inline String_t* GetAtUnchecked(il2cpp_array_size_t index) const
+	{
+		return m_Items[index];
+	}
+	inline String_t** GetAddressAtUnchecked(il2cpp_array_size_t index)
+	{
+		return m_Items + index;
+	}
+	inline void SetAtUnchecked(il2cpp_array_size_t index, String_t* value)
+	{
+		m_Items[index] = value;
+		Il2CppCodeGenWriteBarrier((void**)m_Items + index, (void*)value);
+	}
+};
 struct HeaderU5BU5D_t8E08EFDA0EB43647D3092EDE70FB2D0216899B0D  : public RuntimeArray
 {
 	ALIGN_FIELD (8) Header_t9BD3F2E1FC09047949839C347DC6169851B7F526* m_Items[1];
@@ -3239,40 +3278,6 @@ struct ReceivedMessageU5BU5D_t3DA131B557B5D8E4B265D5B9B109175E9DAEB1F2  : public
 		return m_Items + index;
 	}
 	inline void SetAtUnchecked(il2cpp_array_size_t index, ReceivedMessage_t45105DD14CD9B140EEC99B6F82ECE601A7727E2B* value)
-	{
-		m_Items[index] = value;
-		Il2CppCodeGenWriteBarrier((void**)m_Items + index, (void*)value);
-	}
-};
-struct StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248  : public RuntimeArray
-{
-	ALIGN_FIELD (8) String_t* m_Items[1];
-
-	inline String_t* GetAt(il2cpp_array_size_t index) const
-	{
-		IL2CPP_ARRAY_BOUNDS_CHECK(index, (uint32_t)(this)->max_length);
-		return m_Items[index];
-	}
-	inline String_t** GetAddressAt(il2cpp_array_size_t index)
-	{
-		IL2CPP_ARRAY_BOUNDS_CHECK(index, (uint32_t)(this)->max_length);
-		return m_Items + index;
-	}
-	inline void SetAt(il2cpp_array_size_t index, String_t* value)
-	{
-		IL2CPP_ARRAY_BOUNDS_CHECK(index, (uint32_t)(this)->max_length);
-		m_Items[index] = value;
-		Il2CppCodeGenWriteBarrier((void**)m_Items + index, (void*)value);
-	}
-	inline String_t* GetAtUnchecked(il2cpp_array_size_t index) const
-	{
-		return m_Items[index];
-	}
-	inline String_t** GetAddressAtUnchecked(il2cpp_array_size_t index)
-	{
-		return m_Items + index;
-	}
-	inline void SetAtUnchecked(il2cpp_array_size_t index, String_t* value)
 	{
 		m_Items[index] = value;
 		Il2CppCodeGenWriteBarrier((void**)m_Items + index, (void*)value);
@@ -3408,6 +3413,9 @@ inline EmailSphere_t13E3F2253D30B8E1B56D1C74D8758AF65FFAE612* GameObject_GetComp
 {
 	return ((  EmailSphere_t13E3F2253D30B8E1B56D1C74D8758AF65FFAE612* (*) (GameObject_t76FEDD663AB33C991A9C9A23129337651094216F*, const RuntimeMethod*))GameObject_GetComponent_TisRuntimeObject_m6EAED4AA356F0F48288F67899E5958792395563B_gshared)(__this, method);
 }
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void EmailSphere_Initialize_m97DDEF27A227FFC2750B34BB8EF4BF1EDFAC0D12 (EmailSphere_t13E3F2253D30B8E1B56D1C74D8758AF65FFAE612* __this, String_t* ___0_sender, String_t* ___1_subject, String_t* ___2_body, const RuntimeMethod* method) ;
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void EmailSphere_UpdateText_mD4AD09A0C01D85910FD7346D0F0430ED6FF2025D (EmailSphere_t13E3F2253D30B8E1B56D1C74D8758AF65FFAE612* __this, const RuntimeMethod* method) ;
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* String_Concat_m647EBF831F54B6DF7D5AFA5FD012CF4EE7571B6A (StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248* ___0_values, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* String_Concat_m093934F71A9B351911EE46311674ED463B180006 (String_t* ___0_str0, String_t* ___1_str1, String_t* ___2_str2, String_t* ___3_str3, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool String_IsNullOrEmpty_mEA9E3FB005AC28FE02E69FCF95A7B8456192B478 (String_t* ___0_value, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* GCloudPubSubManager_LoadCredentialsAndLogin_m3585C364BF7C85D6DF4B076E310BA7E92759EA32 (GCloudPubSubManager_t04A5D2E7EE77EE001B6E21974C7E644533B894B1* __this, const RuntimeMethod* method) ;
@@ -4259,7 +4267,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void EmailManager_AddEmail_m8E2570708D8B224CA
 		L_1 = Object_op_Inequality_mD0BE578448EAA61948F25C32F8DD55AB1F778602(L_0, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
 		if (!L_1)
 		{
-			goto IL_004c;
+			goto IL_0040;
 		}
 	}
 	{
@@ -4279,7 +4287,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void EmailManager_AddEmail_m8E2570708D8B224CA
 		L_6 = Object_op_Inequality_mD0BE578448EAA61948F25C32F8DD55AB1F778602(L_5, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
 		if (!L_6)
 		{
-			goto IL_004c;
+			goto IL_0040;
 		}
 	}
 	{
@@ -4287,31 +4295,20 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void EmailManager_AddEmail_m8E2570708D8B224CA
 		EmailSphere_t13E3F2253D30B8E1B56D1C74D8758AF65FFAE612* L_7 = V_0;
 		EmailData_tB681C971FEB4923D190A9499A4046C455F0173E7* L_8 = ___0_email;
 		NullCheck(L_8);
-		String_t* L_9 = L_8->___subject;
-		NullCheck(L_7);
-		L_7->___subject = L_9;
-		Il2CppCodeGenWriteBarrier((void**)(&L_7->___subject), (void*)L_9);
-		//<source_info:/Users/vincentqi/Developer/GitHub/rhack/Assets/Art/EmailManager.cs:28>
-		EmailSphere_t13E3F2253D30B8E1B56D1C74D8758AF65FFAE612* L_10 = V_0;
-		EmailData_tB681C971FEB4923D190A9499A4046C455F0173E7* L_11 = ___0_email;
-		NullCheck(L_11);
-		String_t* L_12 = L_11->___from;
+		String_t* L_9 = L_8->___from;
+		EmailData_tB681C971FEB4923D190A9499A4046C455F0173E7* L_10 = ___0_email;
 		NullCheck(L_10);
-		L_10->___sender = L_12;
-		Il2CppCodeGenWriteBarrier((void**)(&L_10->___sender), (void*)L_12);
-		//<source_info:/Users/vincentqi/Developer/GitHub/rhack/Assets/Art/EmailManager.cs:29>
-		EmailSphere_t13E3F2253D30B8E1B56D1C74D8758AF65FFAE612* L_13 = V_0;
-		EmailData_tB681C971FEB4923D190A9499A4046C455F0173E7* L_14 = ___0_email;
-		NullCheck(L_14);
-		String_t* L_15 = L_14->___snippet;
-		NullCheck(L_13);
-		L_13->___body = L_15;
-		Il2CppCodeGenWriteBarrier((void**)(&L_13->___body), (void*)L_15);
+		String_t* L_11 = L_10->___subject;
+		EmailData_tB681C971FEB4923D190A9499A4046C455F0173E7* L_12 = ___0_email;
+		NullCheck(L_12);
+		String_t* L_13 = L_12->___snippet;
+		NullCheck(L_7);
+		EmailSphere_Initialize_m97DDEF27A227FFC2750B34BB8EF4BF1EDFAC0D12(L_7, L_9, L_11, L_13, NULL);
 	}
 
-IL_004c:
+IL_0040:
 	{
-		//<source_info:/Users/vincentqi/Developer/GitHub/rhack/Assets/Art/EmailManager.cs:32>
+		//<source_info:/Users/vincentqi/Developer/GitHub/rhack/Assets/Art/EmailManager.cs:30>
 		return;
 	}
 }
@@ -4332,18 +4329,109 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void EmailManager__ctor_m7B22D84CB3C3486B99BE
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
 // Method Definition Index: 135811
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void EmailSphere_Start_mE11E85F9BAF283CC318B2C89AACE606E50EB844D (EmailSphere_t13E3F2253D30B8E1B56D1C74D8758AF65FFAE612* __this, const RuntimeMethod* method) 
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void EmailSphere_Initialize_m97DDEF27A227FFC2750B34BB8EF4BF1EDFAC0D12 (EmailSphere_t13E3F2253D30B8E1B56D1C74D8758AF65FFAE612* __this, String_t* ___0_sender, String_t* ___1_subject, String_t* ___2_body, const RuntimeMethod* method) 
 {
 	{
-		//<source_info:/Users/vincentqi/Developer/GitHub/rhack/Assets/Art/EmailSphere.cs:13>
+		//<source_info:/Users/vincentqi/Developer/GitHub/rhack/Assets/Art/EmailSphere.cs:16>
+		String_t* L_0 = ___0_sender;
+		__this->___sender = L_0;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___sender), (void*)L_0);
+		//<source_info:/Users/vincentqi/Developer/GitHub/rhack/Assets/Art/EmailSphere.cs:17>
+		String_t* L_1 = ___1_subject;
+		__this->___subject = L_1;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___subject), (void*)L_1);
+		//<source_info:/Users/vincentqi/Developer/GitHub/rhack/Assets/Art/EmailSphere.cs:18>
+		String_t* L_2 = ___2_body;
+		__this->___body = L_2;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___body), (void*)L_2);
+		//<source_info:/Users/vincentqi/Developer/GitHub/rhack/Assets/Art/EmailSphere.cs:20>
+		EmailSphere_UpdateText_mD4AD09A0C01D85910FD7346D0F0430ED6FF2025D(__this, NULL);
+		//<source_info:/Users/vincentqi/Developer/GitHub/rhack/Assets/Art/EmailSphere.cs:21>
 		return;
 	}
 }
 // Method Definition Index: 135812
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void EmailSphere_Update_m64F424930DEFEC8CD834D3DA9BEAEE89B92B886B (EmailSphere_t13E3F2253D30B8E1B56D1C74D8758AF65FFAE612* __this, const RuntimeMethod* method) 
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void EmailSphere_UpdateText_mD4AD09A0C01D85910FD7346D0F0430ED6FF2025D (EmailSphere_t13E3F2253D30B8E1B56D1C74D8758AF65FFAE612* __this, const RuntimeMethod* method) 
 {
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
 	{
-		//<source_info:/Users/vincentqi/Developer/GitHub/rhack/Assets/Art/EmailSphere.cs:19>
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral6A3B188CE522F17C633812651F0C84D8C8DE794C);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralA8564F4644711E96A0BE32F103065EBEA8F40870);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralC2ABD53443E87B1D4332B55DE89F3F4C04D71253);
+		s_Il2CppMethodInitialized = true;
+	}
+	String_t* V_0 = NULL;
+	{
+		//<source_info:/Users/vincentqi/Developer/GitHub/rhack/Assets/Art/EmailSphere.cs:25>
+		StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248* L_0 = (StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248*)(StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248*)SZArrayNew(StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248_il2cpp_TypeInfo_var, (uint32_t)6);
+		StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248* L_1 = L_0;
+		NullCheck(L_1);
+		(L_1)->SetAt(static_cast<il2cpp_array_size_t>(0), (String_t*)_stringLiteralA8564F4644711E96A0BE32F103065EBEA8F40870);
+		StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248* L_2 = L_1;
+		String_t* L_3 = __this->___sender;
+		NullCheck(L_2);
+		(L_2)->SetAt(static_cast<il2cpp_array_size_t>(1), (String_t*)L_3);
+		StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248* L_4 = L_2;
+		NullCheck(L_4);
+		(L_4)->SetAt(static_cast<il2cpp_array_size_t>(2), (String_t*)_stringLiteral6A3B188CE522F17C633812651F0C84D8C8DE794C);
+		StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248* L_5 = L_4;
+		String_t* L_6 = __this->___subject;
+		NullCheck(L_5);
+		(L_5)->SetAt(static_cast<il2cpp_array_size_t>(3), (String_t*)L_6);
+		StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248* L_7 = L_5;
+		NullCheck(L_7);
+		(L_7)->SetAt(static_cast<il2cpp_array_size_t>(4), (String_t*)_stringLiteralC2ABD53443E87B1D4332B55DE89F3F4C04D71253);
+		StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248* L_8 = L_7;
+		String_t* L_9 = __this->___body;
+		NullCheck(L_8);
+		(L_8)->SetAt(static_cast<il2cpp_array_size_t>(5), (String_t*)L_9);
+		String_t* L_10;
+		L_10 = String_Concat_m647EBF831F54B6DF7D5AFA5FD012CF4EE7571B6A(L_8, NULL);
+		V_0 = L_10;
+		//<source_info:/Users/vincentqi/Developer/GitHub/rhack/Assets/Art/EmailSphere.cs:26>
+		TextMeshProUGUI_t101091AF4B578BB534C92E9D1EEAF0611636D957* L_11 = __this->___fullContent;
+		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
+		bool L_12;
+		L_12 = Object_op_Inequality_mD0BE578448EAA61948F25C32F8DD55AB1F778602(L_11, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
+		if (!L_12)
+		{
+			goto IL_0059;
+		}
+	}
+	{
+		//<source_info:/Users/vincentqi/Developer/GitHub/rhack/Assets/Art/EmailSphere.cs:26>
+		TextMeshProUGUI_t101091AF4B578BB534C92E9D1EEAF0611636D957* L_13 = __this->___fullContent;
+		String_t* L_14 = V_0;
+		NullCheck(L_13);
+		VirtualActionInvoker1< String_t* >::Invoke(66, L_13, L_14);
+	}
+
+IL_0059:
+	{
+		//<source_info:/Users/vincentqi/Developer/GitHub/rhack/Assets/Art/EmailSphere.cs:27>
+		TextMeshProUGUI_t101091AF4B578BB534C92E9D1EEAF0611636D957* L_15 = __this->___aiContent;
+		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
+		bool L_16;
+		L_16 = Object_op_Inequality_mD0BE578448EAA61948F25C32F8DD55AB1F778602(L_15, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
+		if (!L_16)
+		{
+			goto IL_0073;
+		}
+	}
+	{
+		//<source_info:/Users/vincentqi/Developer/GitHub/rhack/Assets/Art/EmailSphere.cs:27>
+		TextMeshProUGUI_t101091AF4B578BB534C92E9D1EEAF0611636D957* L_17 = __this->___aiContent;
+		String_t* L_18 = V_0;
+		NullCheck(L_17);
+		VirtualActionInvoker1< String_t* >::Invoke(66, L_17, L_18);
+	}
+
+IL_0073:
+	{
+		//<source_info:/Users/vincentqi/Developer/GitHub/rhack/Assets/Art/EmailSphere.cs:28>
 		return;
 	}
 }

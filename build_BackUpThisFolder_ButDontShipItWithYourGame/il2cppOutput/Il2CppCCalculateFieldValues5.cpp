@@ -21694,6 +21694,8 @@ struct EmailSphere_t13E3F2253D30B8E1B56D1C74D8758AF65FFAE612  : public MonoBehav
 	String_t* ___subject;
 	String_t* ___body;
 	String_t* ___sender;
+	TextMeshProUGUI_t101091AF4B578BB534C92E9D1EEAF0611636D957* ___fullContent;
+	TextMeshProUGUI_t101091AF4B578BB534C92E9D1EEAF0611636D957* ___aiContent;
 };
 struct EnableTargetOnStart_t09E86E6C056419CDFAA6AB7BC1099FB4D447F709  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
@@ -31420,9 +31422,9 @@ IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable17512[4] =
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable17513[1] = 
 {
 	static_cast<int32_t>(offsetof(EmailManager_tAA25C31F54EE927B129ADDAFF00ABCB6CAF32DB7, ___emailSpherePrefab)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable17514[3] = 
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable17514[5] = 
 {
-	static_cast<int32_t>(offsetof(EmailSphere_t13E3F2253D30B8E1B56D1C74D8758AF65FFAE612, ___subject)),static_cast<int32_t>(offsetof(EmailSphere_t13E3F2253D30B8E1B56D1C74D8758AF65FFAE612, ___body)),static_cast<int32_t>(offsetof(EmailSphere_t13E3F2253D30B8E1B56D1C74D8758AF65FFAE612, ___sender)),};
+	static_cast<int32_t>(offsetof(EmailSphere_t13E3F2253D30B8E1B56D1C74D8758AF65FFAE612, ___subject)),static_cast<int32_t>(offsetof(EmailSphere_t13E3F2253D30B8E1B56D1C74D8758AF65FFAE612, ___body)),static_cast<int32_t>(offsetof(EmailSphere_t13E3F2253D30B8E1B56D1C74D8758AF65FFAE612, ___sender)),static_cast<int32_t>(offsetof(EmailSphere_t13E3F2253D30B8E1B56D1C74D8758AF65FFAE612, ___fullContent)),static_cast<int32_t>(offsetof(EmailSphere_t13E3F2253D30B8E1B56D1C74D8758AF65FFAE612, ___aiContent)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable17515[4] = 
 {
 	static_cast<int32_t>(offsetof(Credentials_tDA087DD930CAACB680CEACB116BDE054D3D590C9, ___client_id)),static_cast<int32_t>(offsetof(Credentials_tDA087DD930CAACB680CEACB116BDE054D3D590C9, ___client_secret)),static_cast<int32_t>(offsetof(Credentials_tDA087DD930CAACB680CEACB116BDE054D3D590C9, ___project_id)),static_cast<int32_t>(offsetof(Credentials_tDA087DD930CAACB680CEACB116BDE054D3D590C9, ___refresh_token)),};

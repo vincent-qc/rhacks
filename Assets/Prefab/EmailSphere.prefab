@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6122123320713360545}
   - component: {fileID: 3148343625491178228}
   m_Layer: 5
-  m_Name: title
+  m_Name: FullTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Information about your Amazon delivery
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 587adc265e077499a8f496175e903857, type: 2}
   m_sharedMaterial: {fileID: 3143363783361042300, guid: 587adc265e077499a8f496175e903857, type: 2}
@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 6495742460731898397}
   - component: {fileID: 4886361992205504559}
   m_Layer: 5
-  m_Name: content
+  m_Name: AIContent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -202,9 +202,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: lroakfla ajfakl jfialefjla jkflkasfk jskdfalk jef afn aklsjda sl  asjka
-    hfakjsfjka hasj kakskdjhas k aksjf . haksjd kkasjfdha fkjasf hjfa . fahsfhak
-    aksf aksjfhkja hejakfjsk /
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 587adc265e077499a8f496175e903857, type: 2}
   m_sharedMaterial: {fileID: 3143363783361042300, guid: 587adc265e077499a8f496175e903857, type: 2}
@@ -289,7 +287,7 @@ GameObject:
   - component: {fileID: 2520519141367514947}
   - component: {fileID: 9088191927396434840}
   m_Layer: 5
-  m_Name: profileCanvas
+  m_Name: Profile Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -519,7 +517,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: April 20, 2024
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 587adc265e077499a8f496175e903857, type: 2}
   m_sharedMaterial: {fileID: 3143363783361042300, guid: 587adc265e077499a8f496175e903857, type: 2}
@@ -873,7 +871,7 @@ GameObject:
   - component: {fileID: 3996215254294845208}
   - component: {fileID: 5020385082313279748}
   m_Layer: 5
-  m_Name: date
+  m_Name: FullDate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -926,7 +924,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: April 20, 2024
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 587adc265e077499a8f496175e903857, type: 2}
   m_sharedMaterial: {fileID: 3143363783361042300, guid: 587adc265e077499a8f496175e903857, type: 2}
@@ -1552,7 +1550,7 @@ GameObject:
   - component: {fileID: 6059739236478061394}
   - component: {fileID: 3835343236037674973}
   m_Layer: 5
-  m_Name: content
+  m_Name: FullContent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1605,14 +1603,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "lroakfla ajfakl jfialefjla jkflkasfk jskdfalk jef afn aklsjda sl  asjka
-    hfakjsfjka hasj kakskdjhas k aksjf . haksjd kkasjfdha fkjasf hjfa . fahsfhak
-    aksf aksjfhkja hejakfjsk / cajsja dak dashdaskd ashdajskdjkaje ankjf as ak akjsdka;/ahuashf
-    askd allalsfjkiawshdkas jd asfasjasdlas ka . asdjsad . jkjfak fkasf als ajsldjklas
-    da; ahsdjlkajdkl alsjdlas hasd asdkl las ks dlkasjdkl lkas dlkas daks la aklsdlkas
-    jd sjka kals ksajdklsad ksa ksa ks kjasf \u2018asm kajf laksj as. aks kasdk hskjda
-    aks hd skjd las. a hakjsdnkja hdsa. sajd alskdjka asildhla s..sadja kjasd ksahdl
-    aks akshjdlas/D /ajialskdjlas;d .asj lasd,;aosjdilasjdlkas;dsa/\n\nfrom, \nsender"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 587adc265e077499a8f496175e903857, type: 2}
   m_sharedMaterial: {fileID: 3143363783361042300, guid: 587adc265e077499a8f496175e903857, type: 2}
@@ -1749,7 +1740,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Information about your Amazon delivery
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 587adc265e077499a8f496175e903857, type: 2}
   m_sharedMaterial: {fileID: 3143363783361042300, guid: 587adc265e077499a8f496175e903857, type: 2}
@@ -1948,7 +1939,7 @@ Rigidbody:
   m_GameObject: {fileID: 8875716184160826949}
   serializedVersion: 5
   m_Mass: 1
-  m_LinearDamping: 0
+  m_LinearDamping: 1
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -2019,6 +2010,8 @@ MonoBehaviour:
   subject: 
   body: 
   sender: 
+  fullContent: {fileID: 3835343236037674973}
+  aiContent: {fileID: 4886361992205504559}
 --- !u!135 &1480173560184705767
 SphereCollider:
   m_ObjectHideFlags: 0
