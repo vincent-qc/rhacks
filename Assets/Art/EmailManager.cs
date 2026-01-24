@@ -28,7 +28,7 @@ public class EmailManager : MonoBehaviour
             Audio.GenerateAudio(summary, (audioClip) =>
             {
                 Vector3 spawnPos = GeneratePosition();
-                // GameObject newSphere = Instantiate(emailSpherePrefab, spawnPos, Quaternion.identity);
+                GameObject newSphere = Instantiate(emailSpherePrefab, spawnPos, Quaternion.identity);
 
                 if (Camera.main != null)
                 {
