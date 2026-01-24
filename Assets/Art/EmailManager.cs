@@ -4,11 +4,19 @@ public class EmailManager : MonoBehaviour
 {
     [SerializeField] public GameObject emailSpherePrefab;
     [SerializeField] private float spawnDistance = 2.0f;
+    [SerializeField] private AudioClip newEmailSoundEffect;
+    
+    private AudioSource audioSource;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        // Get or add AudioSource component
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
     }
 
     // Update is called once per frame
@@ -19,6 +27,12 @@ public class EmailManager : MonoBehaviour
 
     public void AddEmail(GCloudPubSubManager.EmailData email)
     {
+        // Play new email sound effect
+        if (newEmailSoundEffect != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(newEmailSoundEffect);
+        }
+        
         if (emailSpherePrefab == null) return;
 
         EmailAITool.AnalyzeEmail(email.from, email.subject, email.snippet, (analysis) =>
