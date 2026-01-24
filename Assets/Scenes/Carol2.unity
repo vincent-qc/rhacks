@@ -740,6 +740,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 833156434}
   m_CullTransparentMesh: 1
+--- !u!1 &1092358077 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 635730030134716272, guid: b200d3876be2445f0a55949eb90f6cd0, type: 3}
+  m_PrefabInstance: {fileID: 8095064819809194977}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1165549111
 GameObject:
   m_ObjectHideFlags: 0
@@ -887,6 +892,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CarolSphere
       objectReference: {fileID: 0}
+    - target: {fileID: 3280838044501056001, guid: 868461d5709794238b68b3a5e5e1af1e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4818256185254398599, guid: 868461d5709794238b68b3a5e5e1af1e, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -923,6 +932,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 130780250880121236, guid: b200d3876be2445f0a55949eb90f6cd0, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190080
+      objectReference: {fileID: 0}
+    - target: {fileID: 635730030134716272, guid: b200d3876be2445f0a55949eb90f6cd0, type: 3}
+      propertyPath: m_Name
+      value: fullCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 635730030134716272, guid: b200d3876be2445f0a55949eb90f6cd0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1036421567062730877, guid: b200d3876be2445f0a55949eb90f6cd0, type: 3}
+      propertyPath: m_Name
+      value: date
+      objectReference: {fileID: 0}
     - target: {fileID: 1117402020075091773, guid: b200d3876be2445f0a55949eb90f6cd0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.62
@@ -963,9 +988,49 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2893405030655953933, guid: b200d3876be2445f0a55949eb90f6cd0, type: 3}
+      propertyPath: fullCanvas
+      value: 
+      objectReference: {fileID: 1092358077}
+    - target: {fileID: 3565612130964515789, guid: b200d3876be2445f0a55949eb90f6cd0, type: 3}
+      propertyPath: m_Name
+      value: title
+      objectReference: {fileID: 0}
+    - target: {fileID: 3583880773966699658, guid: b200d3876be2445f0a55949eb90f6cd0, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4287993237
+      objectReference: {fileID: 0}
+    - target: {fileID: 5305952332134549926, guid: b200d3876be2445f0a55949eb90f6cd0, type: 3}
+      propertyPath: m_Name
+      value: date
+      objectReference: {fileID: 0}
+    - target: {fileID: 5817311062920877171, guid: b200d3876be2445f0a55949eb90f6cd0, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190080
+      objectReference: {fileID: 0}
     - target: {fileID: 6309065611868239572, guid: b200d3876be2445f0a55949eb90f6cd0, type: 3}
       propertyPath: m_Name
       value: CarolSpherePROFILE
+      objectReference: {fileID: 0}
+    - target: {fileID: 6960753164422506911, guid: b200d3876be2445f0a55949eb90f6cd0, type: 3}
+      propertyPath: m_Name
+      value: title
+      objectReference: {fileID: 0}
+    - target: {fileID: 7787493158296106830, guid: b200d3876be2445f0a55949eb90f6cd0, type: 3}
+      propertyPath: m_Name
+      value: content
+      objectReference: {fileID: 0}
+    - target: {fileID: 7787493158296106830, guid: b200d3876be2445f0a55949eb90f6cd0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845837166923163066, guid: b200d3876be2445f0a55949eb90f6cd0, type: 3}
+      propertyPath: m_Name
+      value: content
+      objectReference: {fileID: 0}
+    - target: {fileID: 8680509807879436240, guid: b200d3876be2445f0a55949eb90f6cd0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
