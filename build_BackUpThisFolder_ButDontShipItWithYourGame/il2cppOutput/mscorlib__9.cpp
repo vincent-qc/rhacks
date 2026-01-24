@@ -23423,7 +23423,7 @@ IL_006b:
 		int32_t L_16 = ___1_index;
 		int32_t L_17 = ___2_count;
 		int32_t L_18;
-		L_18 = VirtualFuncInvoker3< int32_t, Il2CppChar*, int32_t, EncoderNLS_t7E26978E7B7BAC1B66F687CE76BBCBCC82D835DF* >::Invoke(14, __this, ((Il2CppChar*)il2cpp_codegen_add((intptr_t)L_15, ((intptr_t)il2cpp_codegen_multiply(((intptr_t)L_16), 2)))), L_17, (EncoderNLS_t7E26978E7B7BAC1B66F687CE76BBCBCC82D835DF*)NULL);
+		L_18 = VirtualFuncInvoker3< int32_t, Il2CppChar*, int32_t, EncoderNLS_t7E26978E7B7BAC1B66F687CE76BBCBCC82D835DF* >::Invoke(15, __this, ((Il2CppChar*)il2cpp_codegen_add((intptr_t)L_15, ((intptr_t)il2cpp_codegen_multiply(((intptr_t)L_16), 2)))), L_17, (EncoderNLS_t7E26978E7B7BAC1B66F687CE76BBCBCC82D835DF*)NULL);
 		return L_18;
 	}
 }
@@ -23472,7 +23472,7 @@ IL_001e:
 		int32_t L_9;
 		L_9 = String_get_Length_m42625D67623FA5CC7A44D47425CE86FB946542D2_inline(L_8, NULL);
 		int32_t L_10;
-		L_10 = VirtualFuncInvoker3< int32_t, Il2CppChar*, int32_t, EncoderNLS_t7E26978E7B7BAC1B66F687CE76BBCBCC82D835DF* >::Invoke(14, __this, L_7, L_9, (EncoderNLS_t7E26978E7B7BAC1B66F687CE76BBCBCC82D835DF*)NULL);
+		L_10 = VirtualFuncInvoker3< int32_t, Il2CppChar*, int32_t, EncoderNLS_t7E26978E7B7BAC1B66F687CE76BBCBCC82D835DF* >::Invoke(15, __this, L_7, L_9, (EncoderNLS_t7E26978E7B7BAC1B66F687CE76BBCBCC82D835DF*)NULL);
 		return L_10;
 	}
 }
@@ -23511,7 +23511,7 @@ IL_0029:
 		Il2CppChar* L_4 = ___0_chars;
 		int32_t L_5 = ___1_count;
 		int32_t L_6;
-		L_6 = VirtualFuncInvoker3< int32_t, Il2CppChar*, int32_t, EncoderNLS_t7E26978E7B7BAC1B66F687CE76BBCBCC82D835DF* >::Invoke(14, __this, L_4, L_5, (EncoderNLS_t7E26978E7B7BAC1B66F687CE76BBCBCC82D835DF*)NULL);
+		L_6 = VirtualFuncInvoker3< int32_t, Il2CppChar*, int32_t, EncoderNLS_t7E26978E7B7BAC1B66F687CE76BBCBCC82D835DF* >::Invoke(15, __this, L_4, L_5, (EncoderNLS_t7E26978E7B7BAC1B66F687CE76BBCBCC82D835DF*)NULL);
 		return L_6;
 	}
 }
@@ -23697,7 +23697,7 @@ IL_0094:
 		int32_t L_32 = ___4_byteIndex;
 		int32_t L_33 = V_0;
 		int32_t L_34;
-		L_34 = VirtualFuncInvoker5< int32_t, Il2CppChar*, int32_t, uint8_t*, int32_t, EncoderNLS_t7E26978E7B7BAC1B66F687CE76BBCBCC82D835DF* >::Invoke(19, __this, ((Il2CppChar*)il2cpp_codegen_add((intptr_t)L_28, ((intptr_t)il2cpp_codegen_multiply(((intptr_t)L_29), 2)))), L_30, ((uint8_t*)il2cpp_codegen_add((intptr_t)L_31, L_32)), L_33, (EncoderNLS_t7E26978E7B7BAC1B66F687CE76BBCBCC82D835DF*)NULL);
+		L_34 = VirtualFuncInvoker5< int32_t, Il2CppChar*, int32_t, uint8_t*, int32_t, EncoderNLS_t7E26978E7B7BAC1B66F687CE76BBCBCC82D835DF* >::Invoke(20, __this, ((Il2CppChar*)il2cpp_codegen_add((intptr_t)L_28, ((intptr_t)il2cpp_codegen_multiply(((intptr_t)L_29), 2)))), L_30, ((uint8_t*)il2cpp_codegen_add((intptr_t)L_31, L_32)), L_33, (EncoderNLS_t7E26978E7B7BAC1B66F687CE76BBCBCC82D835DF*)NULL);
 		return L_34;
 	}
 }
@@ -23906,7 +23906,7 @@ IL_009e:
 		int32_t L_31 = ___4_byteIndex;
 		int32_t L_32 = V_0;
 		int32_t L_33;
-		L_33 = VirtualFuncInvoker5< int32_t, Il2CppChar*, int32_t, uint8_t*, int32_t, EncoderNLS_t7E26978E7B7BAC1B66F687CE76BBCBCC82D835DF* >::Invoke(19, __this, ((Il2CppChar*)il2cpp_codegen_add((intptr_t)L_27, ((intptr_t)il2cpp_codegen_multiply(((intptr_t)L_28), 2)))), L_29, ((uint8_t*)il2cpp_codegen_add((intptr_t)L_30, L_31)), L_32, (EncoderNLS_t7E26978E7B7BAC1B66F687CE76BBCBCC82D835DF*)NULL);
+		L_33 = VirtualFuncInvoker5< int32_t, Il2CppChar*, int32_t, uint8_t*, int32_t, EncoderNLS_t7E26978E7B7BAC1B66F687CE76BBCBCC82D835DF* >::Invoke(20, __this, ((Il2CppChar*)il2cpp_codegen_add((intptr_t)L_27, ((intptr_t)il2cpp_codegen_multiply(((intptr_t)L_28), 2)))), L_29, ((uint8_t*)il2cpp_codegen_add((intptr_t)L_30, L_31)), L_32, (EncoderNLS_t7E26978E7B7BAC1B66F687CE76BBCBCC82D835DF*)NULL);
 		return L_33;
 	}
 }
@@ -24003,7 +24003,7 @@ IL_004a:
 		uint8_t* L_10 = ___2_bytes;
 		int32_t L_11 = ___3_byteCount;
 		int32_t L_12;
-		L_12 = VirtualFuncInvoker5< int32_t, Il2CppChar*, int32_t, uint8_t*, int32_t, EncoderNLS_t7E26978E7B7BAC1B66F687CE76BBCBCC82D835DF* >::Invoke(19, __this, L_8, L_9, L_10, L_11, (EncoderNLS_t7E26978E7B7BAC1B66F687CE76BBCBCC82D835DF*)NULL);
+		L_12 = VirtualFuncInvoker5< int32_t, Il2CppChar*, int32_t, uint8_t*, int32_t, EncoderNLS_t7E26978E7B7BAC1B66F687CE76BBCBCC82D835DF* >::Invoke(20, __this, L_8, L_9, L_10, L_11, (EncoderNLS_t7E26978E7B7BAC1B66F687CE76BBCBCC82D835DF*)NULL);
 		return L_12;
 	}
 }
@@ -24134,7 +24134,7 @@ IL_006b:
 		int32_t L_16 = ___1_index;
 		int32_t L_17 = ___2_count;
 		int32_t L_18;
-		L_18 = VirtualFuncInvoker3< int32_t, uint8_t*, int32_t, DecoderNLS_tF18CBF663DFA66748F619AD7C6D6C4859DBFA80B* >::Invoke(23, __this, ((uint8_t*)il2cpp_codegen_add((intptr_t)L_15, L_16)), L_17, (DecoderNLS_tF18CBF663DFA66748F619AD7C6D6C4859DBFA80B*)NULL);
+		L_18 = VirtualFuncInvoker3< int32_t, uint8_t*, int32_t, DecoderNLS_tF18CBF663DFA66748F619AD7C6D6C4859DBFA80B* >::Invoke(24, __this, ((uint8_t*)il2cpp_codegen_add((intptr_t)L_15, L_16)), L_17, (DecoderNLS_tF18CBF663DFA66748F619AD7C6D6C4859DBFA80B*)NULL);
 		return L_18;
 	}
 }
@@ -24173,7 +24173,7 @@ IL_0029:
 		uint8_t* L_4 = ___0_bytes;
 		int32_t L_5 = ___1_count;
 		int32_t L_6;
-		L_6 = VirtualFuncInvoker3< int32_t, uint8_t*, int32_t, DecoderNLS_tF18CBF663DFA66748F619AD7C6D6C4859DBFA80B* >::Invoke(23, __this, L_4, L_5, (DecoderNLS_tF18CBF663DFA66748F619AD7C6D6C4859DBFA80B*)NULL);
+		L_6 = VirtualFuncInvoker3< int32_t, uint8_t*, int32_t, DecoderNLS_tF18CBF663DFA66748F619AD7C6D6C4859DBFA80B* >::Invoke(24, __this, L_4, L_5, (DecoderNLS_tF18CBF663DFA66748F619AD7C6D6C4859DBFA80B*)NULL);
 		return L_6;
 	}
 }
@@ -24382,7 +24382,7 @@ IL_009e:
 		int32_t L_31 = ___4_charIndex;
 		int32_t L_32 = V_0;
 		int32_t L_33;
-		L_33 = VirtualFuncInvoker5< int32_t, uint8_t*, int32_t, Il2CppChar*, int32_t, DecoderNLS_tF18CBF663DFA66748F619AD7C6D6C4859DBFA80B* >::Invoke(28, __this, ((uint8_t*)il2cpp_codegen_add((intptr_t)L_27, L_28)), L_29, ((Il2CppChar*)il2cpp_codegen_add((intptr_t)L_30, ((intptr_t)il2cpp_codegen_multiply(((intptr_t)L_31), 2)))), L_32, (DecoderNLS_tF18CBF663DFA66748F619AD7C6D6C4859DBFA80B*)NULL);
+		L_33 = VirtualFuncInvoker5< int32_t, uint8_t*, int32_t, Il2CppChar*, int32_t, DecoderNLS_tF18CBF663DFA66748F619AD7C6D6C4859DBFA80B* >::Invoke(29, __this, ((uint8_t*)il2cpp_codegen_add((intptr_t)L_27, L_28)), L_29, ((Il2CppChar*)il2cpp_codegen_add((intptr_t)L_30, ((intptr_t)il2cpp_codegen_multiply(((intptr_t)L_31), 2)))), L_32, (DecoderNLS_tF18CBF663DFA66748F619AD7C6D6C4859DBFA80B*)NULL);
 		return L_33;
 	}
 }
@@ -24479,7 +24479,7 @@ IL_004b:
 		Il2CppChar* L_10 = ___2_chars;
 		int32_t L_11 = ___3_charCount;
 		int32_t L_12;
-		L_12 = VirtualFuncInvoker5< int32_t, uint8_t*, int32_t, Il2CppChar*, int32_t, DecoderNLS_tF18CBF663DFA66748F619AD7C6D6C4859DBFA80B* >::Invoke(28, __this, L_8, L_9, L_10, L_11, (DecoderNLS_tF18CBF663DFA66748F619AD7C6D6C4859DBFA80B*)NULL);
+		L_12 = VirtualFuncInvoker5< int32_t, uint8_t*, int32_t, Il2CppChar*, int32_t, DecoderNLS_tF18CBF663DFA66748F619AD7C6D6C4859DBFA80B* >::Invoke(29, __this, L_8, L_9, L_10, L_11, (DecoderNLS_tF18CBF663DFA66748F619AD7C6D6C4859DBFA80B*)NULL);
 		return L_12;
 	}
 }
@@ -27114,13 +27114,13 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool InternalDecoderBestFitFallback_Equals_mF
 		Encoding_t65CDEF28CF20A7B8C92E85A4E808920C2465F095* L_2 = __this->____encoding;
 		NullCheck(L_2);
 		int32_t L_3;
-		L_3 = VirtualFuncInvoker0< int32_t >::Invoke(30, L_2);
+		L_3 = VirtualFuncInvoker0< int32_t >::Invoke(31, L_2);
 		InternalDecoderBestFitFallback_t2F5C587E55B8931AAA870AE3941D20BF5DFBF67A* L_4 = V_0;
 		NullCheck(L_4);
 		Encoding_t65CDEF28CF20A7B8C92E85A4E808920C2465F095* L_5 = L_4->____encoding;
 		NullCheck(L_5);
 		int32_t L_6;
-		L_6 = VirtualFuncInvoker0< int32_t >::Invoke(30, L_5);
+		L_6 = VirtualFuncInvoker0< int32_t >::Invoke(31, L_5);
 		return (bool)((((int32_t)L_3) == ((int32_t)L_6))? 1 : 0);
 	}
 
@@ -27136,7 +27136,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t InternalDecoderBestFitFallback_GetHas
 		Encoding_t65CDEF28CF20A7B8C92E85A4E808920C2465F095* L_0 = __this->____encoding;
 		NullCheck(L_0);
 		int32_t L_1;
-		L_1 = VirtualFuncInvoker0< int32_t >::Invoke(30, L_0);
+		L_1 = VirtualFuncInvoker0< int32_t >::Invoke(31, L_0);
 		return L_1;
 	}
 }
@@ -27250,7 +27250,7 @@ IL_005f:
 				Encoding_t65CDEF28CF20A7B8C92E85A4E808920C2465F095* L_11 = L_10->____encoding;
 				NullCheck(L_11);
 				CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB* L_12;
-				L_12 = VirtualFuncInvoker0< CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB* >::Invoke(38, L_11);
+				L_12 = VirtualFuncInvoker0< CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB* >::Invoke(39, L_11);
 				NullCheck(L_9);
 				L_9->____arrayBestFit = L_12;
 				Il2CppCodeGenWriteBarrier((void**)(&L_9->____arrayBestFit), (void*)L_12);
@@ -28601,7 +28601,7 @@ IL_0029:
 		int32_t L_7 = ___1_count;
 		NullCheck(L_5);
 		int32_t L_8;
-		L_8 = VirtualFuncInvoker3< int32_t, uint8_t*, int32_t, DecoderNLS_tF18CBF663DFA66748F619AD7C6D6C4859DBFA80B* >::Invoke(23, L_5, L_6, L_7, __this);
+		L_8 = VirtualFuncInvoker3< int32_t, uint8_t*, int32_t, DecoderNLS_tF18CBF663DFA66748F619AD7C6D6C4859DBFA80B* >::Invoke(24, L_5, L_6, L_7, __this);
 		return L_8;
 	}
 }
@@ -28893,7 +28893,7 @@ IL_004a:
 		int32_t L_13 = ___3_charCount;
 		NullCheck(L_9);
 		int32_t L_14;
-		L_14 = VirtualFuncInvoker5< int32_t, uint8_t*, int32_t, Il2CppChar*, int32_t, DecoderNLS_tF18CBF663DFA66748F619AD7C6D6C4859DBFA80B* >::Invoke(28, L_9, L_10, L_11, L_12, L_13, __this);
+		L_14 = VirtualFuncInvoker5< int32_t, uint8_t*, int32_t, Il2CppChar*, int32_t, DecoderNLS_tF18CBF663DFA66748F619AD7C6D6C4859DBFA80B* >::Invoke(29, L_9, L_10, L_11, L_12, L_13, __this);
 		return L_14;
 	}
 }
@@ -29214,7 +29214,7 @@ IL_004a:
 		int32_t L_14 = ___3_charCount;
 		NullCheck(L_10);
 		int32_t L_15;
-		L_15 = VirtualFuncInvoker5< int32_t, uint8_t*, int32_t, Il2CppChar*, int32_t, DecoderNLS_tF18CBF663DFA66748F619AD7C6D6C4859DBFA80B* >::Invoke(28, L_10, L_11, L_12, L_13, L_14, __this);
+		L_15 = VirtualFuncInvoker5< int32_t, uint8_t*, int32_t, Il2CppChar*, int32_t, DecoderNLS_tF18CBF663DFA66748F619AD7C6D6C4859DBFA80B* >::Invoke(29, L_10, L_11, L_12, L_13, L_14, __this);
 		*((int32_t*)L_9) = (int32_t)L_15;
 		int32_t* L_16 = ___5_bytesUsed;
 		int32_t L_17 = __this->____bytesUsed;
@@ -30678,13 +30678,13 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool InternalEncoderBestFitFallback_Equals_m0
 		Encoding_t65CDEF28CF20A7B8C92E85A4E808920C2465F095* L_2 = __this->____encoding;
 		NullCheck(L_2);
 		int32_t L_3;
-		L_3 = VirtualFuncInvoker0< int32_t >::Invoke(30, L_2);
+		L_3 = VirtualFuncInvoker0< int32_t >::Invoke(31, L_2);
 		InternalEncoderBestFitFallback_t1DB9331DDF6C557261B83BDF9C13612FCE3496BE* L_4 = V_0;
 		NullCheck(L_4);
 		Encoding_t65CDEF28CF20A7B8C92E85A4E808920C2465F095* L_5 = L_4->____encoding;
 		NullCheck(L_5);
 		int32_t L_6;
-		L_6 = VirtualFuncInvoker0< int32_t >::Invoke(30, L_5);
+		L_6 = VirtualFuncInvoker0< int32_t >::Invoke(31, L_5);
 		return (bool)((((int32_t)L_3) == ((int32_t)L_6))? 1 : 0);
 	}
 
@@ -30700,7 +30700,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t InternalEncoderBestFitFallback_GetHas
 		Encoding_t65CDEF28CF20A7B8C92E85A4E808920C2465F095* L_0 = __this->____encoding;
 		NullCheck(L_0);
 		int32_t L_1;
-		L_1 = VirtualFuncInvoker0< int32_t >::Invoke(30, L_0);
+		L_1 = VirtualFuncInvoker0< int32_t >::Invoke(31, L_0);
 		return L_1;
 	}
 }
@@ -30814,7 +30814,7 @@ IL_005f:
 				Encoding_t65CDEF28CF20A7B8C92E85A4E808920C2465F095* L_11 = L_10->____encoding;
 				NullCheck(L_11);
 				CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB* L_12;
-				L_12 = VirtualFuncInvoker0< CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB* >::Invoke(37, L_11);
+				L_12 = VirtualFuncInvoker0< CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB* >::Invoke(38, L_11);
 				NullCheck(L_9);
 				L_9->____arrayBestFit = L_12;
 				Il2CppCodeGenWriteBarrier((void**)(&L_9->____arrayBestFit), (void*)L_12);
@@ -31364,7 +31364,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void WaitCallback_Invoke_m64DEF4A
 	typedef void (*FunctionPointerType) (RuntimeObject*, RuntimeObject*, const RuntimeMethod*);
 	((FunctionPointerType)__this->___invoke_impl)((Il2CppObject*)__this->___method_code, ___0_state, reinterpret_cast<RuntimeMethod*>(__this->___method));
 }
-// Method Definition Index: 8274
+// Method Definition Index: 8275
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR intptr_t SafeHandle_DangerousGetHandle_mE7CB3F36EE7BB2E2623EF316C4B43D1CA44B7F9C_inline (SafeHandle_tC1A4DA80DA89B867CC011B707A07275230321BF7* __this, const RuntimeMethod* method) 
 {
 	{
@@ -31430,7 +31430,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR RuntimeObject* Task_get_AsyncStat
 		return L_0;
 	}
 }
-// Method Definition Index: 8503
+// Method Definition Index: 8504
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR ConfiguredTaskAwaiter_t6D4C5E6B82017ED33DAFA1EFC33B0EFBE3137618 ConfiguredTaskAwaitable_GetAwaiter_m3F163D24211147E68FC5799A7D2D2BE7C07A60B5_inline (ConfiguredTaskAwaitable_tABE012B321A51A20F0D34F8122B9EAE3A054875C* __this, const RuntimeMethod* method) 
 {
 	{
@@ -31630,7 +31630,7 @@ IL_002c:
 		return;
 	}
 }
-// Method Definition Index: 8471
+// Method Definition Index: 8472
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void ValueTaskAwaiter__ctor_m25760683F4DED40086DB90489D54038C1B126465_inline (ValueTaskAwaiter_t8A53759F995F1786E132CA010D1D215B55F3101A* __this, ValueTask_t10B4B5DDF5C582607D0E634FA912F8CB94FCD49F ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -31640,7 +31640,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void ValueTaskAwaiter__ctor_m2576
 		return;
 	}
 }
-// Method Definition Index: 8417
+// Method Definition Index: 8418
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void ConfiguredValueTaskAwaitable__ctor_mD9583661A0F3E2D6A23C37313CC015A30097CA31_inline (ConfiguredValueTaskAwaitable_tF9BBD676A27C3E73D2C1EC20C515272804ED0D04* __this, ValueTask_t10B4B5DDF5C582607D0E634FA912F8CB94FCD49F ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -31763,7 +31763,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void Action_Invoke_m7126A54DACA72
 	typedef void (*FunctionPointerType) (RuntimeObject*, const RuntimeMethod*);
 	((FunctionPointerType)__this->___invoke_impl)((Il2CppObject*)__this->___method_code, reinterpret_cast<RuntimeMethod*>(__this->___method));
 }
-// Method Definition Index: 8485
+// Method Definition Index: 8486
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void TaskAwaiter__ctor_m36A7CD6BDC2D1DE02A4BEA8114A2980368CCBAC0_inline (TaskAwaiter_t9B661AC8C2EFA6BAB94C77BB24A5DDA82D61F833* __this, Task_t751C4CC3ECD055BABA8A0B6A5DFBB4283DCA8572* ___0_task, const RuntimeMethod* method) 
 {
 	{
@@ -31928,7 +31928,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void ContextCallback_Invoke_m872C
 	typedef void (*FunctionPointerType) (RuntimeObject*, RuntimeObject*, const RuntimeMethod*);
 	((FunctionPointerType)__this->___invoke_impl)((Il2CppObject*)__this->___method_code, ___0_state, reinterpret_cast<RuntimeMethod*>(__this->___method));
 }
-// Method Definition Index: 8397
+// Method Definition Index: 8398
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Exception_t* ExceptionDispatchInfo_get_SourceException_m981DC7F90598BE65BD4FA1A8340025A3A7CC3DBE_inline (ExceptionDispatchInfo_tD7AF19E75FEC22F4A8329FD1E9EDF96615CB2757* __this, const RuntimeMethod* method) 
 {
 	{
@@ -31978,7 +31978,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR EncoderFallback_tD2C40CE114AA9D8E
 		return L_0;
 	}
 }
-// Method Definition Index: 5902
+// Method Definition Index: 5903
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR EncoderFallback_tD2C40CE114AA9D8E1F7196608B2D088548015293* Encoding_get_EncoderFallback_m60479C11CA464A5D4AC2EEB87D52F824987DB3A3_inline (Encoding_t65CDEF28CF20A7B8C92E85A4E808920C2465F095* __this, const RuntimeMethod* method) 
 {
 	{
@@ -31994,7 +31994,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR String_t* EncoderReplacementFallb
 		return L_0;
 	}
 }
-// Method Definition Index: 5904
+// Method Definition Index: 5905
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR DecoderFallback_t7324102215E4ED41EC065C02EB501CB0BC23CD90* Encoding_get_DecoderFallback_m4C3F4C1FDA7B6B61321BB15A3A765394BAFE45A4_inline (Encoding_t65CDEF28CF20A7B8C92E85A4E808920C2465F095* __this, const RuntimeMethod* method) 
 {
 	{
@@ -32027,7 +32027,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void Exception_set_HResult_m010A1
 		return;
 	}
 }
-// Method Definition Index: 11616
+// Method Definition Index: 11618
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void List_1_Add_mEBCF994CC3814631017F46A387B1A192ED6C85C7_gshared_inline (List_1_tA239CB83DE5615F348BB0507E45F490F4F7C9A8D* __this, RuntimeObject* ___0_item, const RuntimeMethod* method) 
 {
 	ObjectU5BU5D_t8061030B0A12A55D5AD8652A20C922FE99450918* V_0 = NULL;
@@ -32065,7 +32065,7 @@ IL_0034:
 		return;
 	}
 }
-// Method Definition Index: 11605
+// Method Definition Index: 11607
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int32_t List_1_get_Count_m4407E4C389F22B8CEC282C15D56516658746C383_gshared_inline (List_1_tA239CB83DE5615F348BB0507E45F490F4F7C9A8D* __this, const RuntimeMethod* method) 
 {
 	{
@@ -32113,7 +32113,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void Action_1_Invoke_mF2422B2DD29
 	typedef void (*FunctionPointerType) (RuntimeObject*, RuntimeObject*, const RuntimeMethod*);
 	((FunctionPointerType)__this->___invoke_impl)((Il2CppObject*)__this->___method_code, ___0_obj, reinterpret_cast<RuntimeMethod*>(__this->___method));
 }
-// Method Definition Index: 11765
+// Method Definition Index: 11767
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int32_t LowLevelList_1_get_Count_m1ECF3B013648B0789D39052FD2C562ECEB2B13A4_gshared_inline (LowLevelList_1_tFB82D019B54AD98BC47D01C80B32C9DC3FA3BE58* __this, const RuntimeMethod* method) 
 {
 	{
@@ -32143,7 +32143,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR ByteU5BU5D_tA6237BF417AE52AD70CFB
 		return L_0;
 	}
 }
-// Method Definition Index: 8223
+// Method Definition Index: 8224
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR uint8_t* MemoryMarshal_GetNonNullPinnableReference_TisByte_t94D9231AC217BE4D2E004C4CD32DF6D099EA41A3_m3BA1CF7AEF4608078C01A049B6E239285AB817C0_gshared_inline (ReadOnlySpan_1_tA850A6C0E88ABBA37646A078ACBC24D6D5FD9B4D ___0_span, const RuntimeMethod* method) 
 {
 	il2cpp_rgctx_method_init(method);
@@ -32173,7 +32173,7 @@ IL_0011:
 		return L_4;
 	}
 }
-// Method Definition Index: 8222
+// Method Definition Index: 8223
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Il2CppChar* MemoryMarshal_GetNonNullPinnableReference_TisChar_t521A6F19B456D956AF452D926C32709DC03D6B17_m77B70401B37FCAA324528DEA0949494FCE944D9B_gshared_inline (Span_1_tEDDF15FCF9EC6DEBA0F696BAACDDBAB9D92C252D ___0_span, const RuntimeMethod* method) 
 {
 	il2cpp_rgctx_method_init(method);

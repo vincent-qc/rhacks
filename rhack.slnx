@@ -32,7 +32,6 @@
   <Project Path="Unity.Burst.csproj" />
   <Project Path="Oculus.VR.Editor.csproj" />
   <Project Path="Unity.VisualScripting.Flow.Editor.csproj" />
-  <Project Path="Assembly-CSharp.csproj" />
   <Project Path="Unity.XR.ARSubsystems.csproj" />
   <Project Path="Oculus.VR.Scripts.Editor.csproj" />
   <Project Path="Unity.VisualStudio.Editor.csproj" />
@@ -90,6 +89,7 @@
   <Project Path="Oculus.Interaction.OVR.Samples.csproj" />
   <Project Path="UnityEditor.UI.csproj" />
   <Project Path="Unity.RenderPipelines.Universal.2D.Editor.Overrides.csproj" />
+  <Project Path="Assembly-CSharp.csproj" />
   <Project Path="VoiceSDK.Dictation.Runtime.csproj" />
   <Project Path="Meta.XR.Editor.PlayCompanion.csproj" />
   <Project Path="Meta.XR.Editor.Reflection.csproj" />
