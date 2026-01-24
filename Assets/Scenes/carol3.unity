@@ -660,10 +660,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 427252199697736309, guid: 8ffff3ab699b34ae7889e428b56c251e, type: 3}
+      propertyPath: aiCanvas
+      value: 
+      objectReference: {fileID: 1918944003}
     - target: {fileID: 654815786638865790, guid: 8ffff3ab699b34ae7889e428b56c251e, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 577d77b047b9d4aa197d27a9475069f0, type: 2}
+    - target: {fileID: 2986426252443600610, guid: 8ffff3ab699b34ae7889e428b56c251e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.014
+      objectReference: {fileID: 0}
     - target: {fileID: 3138999275387830781, guid: 8ffff3ab699b34ae7889e428b56c251e, type: 3}
       propertyPath: m_Name
       value: CarolSphere
@@ -674,7 +682,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3710307918500828359, guid: 8ffff3ab699b34ae7889e428b56c251e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.03
+      value: -1.573
       objectReference: {fileID: 0}
     - target: {fileID: 3710307918500828359, guid: 8ffff3ab699b34ae7889e428b56c251e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1658,6 +1666,11 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &1918944003 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2411448565364740525, guid: 8ffff3ab699b34ae7889e428b56c251e, type: 3}
+  m_PrefabInstance: {fileID: 617466841}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2003286537
 GameObject:
   m_ObjectHideFlags: 0
