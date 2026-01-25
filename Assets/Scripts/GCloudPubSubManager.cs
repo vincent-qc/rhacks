@@ -450,6 +450,89 @@ public class GCloudPubSubManager : MonoBehaviour
         return email;
     }
 
+    /// <summary>
+    /// Send an email using Gmail API
+    /// </summary>
+    /// <param name="to">Recipient email address</param>
+    /// <param name="subject">Email subject</param>
+    /// <param name="body">Email body content</param>
+    /// <param name="callback">Callback when send completes (success/failure)</param>
+    public void SendEmail(string to, string subject, string body, Action<bool, string> callback = null)
+    {
+        StartCoroutine(SendEmailCoroutine(to, subject, body, callback));
+    }
+
+    private IEnumerator SendEmailCoroutine(string to, string subject, string body, Action<bool, string> callback)
+    {
+        if (!IsAuthenticated)
+        {
+            string error = "Not authenticated. Cannot send email.";
+            Debug.LogError($"[GmailPubSub] {error}");
+            callback?.Invoke(false, error);
+            yield break;
+        }
+
+        // Create RFC 2822 formatted email message
+        string emailMessage = CreateRFC2822Message(to, subject, body);
+        
+        // Base64 URL-safe encoding (Gmail API requirement)
+        string encodedMessage = Base64UrlEncode(emailMessage);
+
+        // Create JSON request body
+        string jsonBody = $"{{\"raw\": \"{encodedMessage}\"}}";
+
+        string url = "https://gmail.googleapis.com/gmail/v1/users/me/messages/send";
+
+        using (UnityWebRequest request = CreatePostRequest(url, jsonBody))
+        {
+            yield return request.SendWebRequest();
+
+            if (request.result == UnityWebRequest.Result.Success)
+            {
+                Debug.Log("[GmailPubSub] Email sent successfully!");
+                callback?.Invoke(true, "Email sent successfully");
+            }
+            else
+            {
+                string error = $"Failed to send email: {request.error} - {request.downloadHandler.text}";
+                Debug.LogError($"[GmailPubSub] {error}");
+                callback?.Invoke(false, error);
+            }
+        }
+    }
+
+    /// <summary>
+    /// Create RFC 2822 formatted email message
+    /// </summary>
+    private string CreateRFC2822Message(string to, string subject, string body)
+    {
+        StringBuilder sb = new StringBuilder();
+        
+        // Headers
+        sb.AppendLine($"To: {to}");
+        sb.AppendLine($"Subject: {subject}");
+        sb.AppendLine("Content-Type: text/plain; charset=utf-8");
+        sb.AppendLine("MIME-Version: 1.0");
+        sb.AppendLine(); // Empty line separates headers from body
+        
+        // Body
+        sb.Append(body);
+
+        return sb.ToString();
+    }
+
+    /// <summary>
+    /// Base64 URL-safe encoding (Gmail API requires this format)
+    /// </summary>
+    private string Base64UrlEncode(string input)
+    {
+        byte[] inputBytes = Encoding.UTF8.GetBytes(input);
+        string base64 = Convert.ToBase64String(inputBytes);
+        
+        // Make it URL-safe: replace +/= with -_
+        return base64.Replace('+', '-').Replace('/', '_').Replace("=", "");
+    }
+
     private UnityWebRequest CreateGetRequest(string url)
     {
         UnityWebRequest request = UnityWebRequest.Get(url);
