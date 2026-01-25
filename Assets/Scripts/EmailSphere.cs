@@ -206,4 +206,9 @@ public class EmailSphere : MonoBehaviour
     if (fullContent != null) fullContent.text = content;
     if (aiContent != null) aiContent.text = content;
   }
+
+  void OnTriggerEnter(Collider col)
+  {
+    UnityEngine.Debug.Log($"Collided with: {col.gameObject.name}");
+  }
 }

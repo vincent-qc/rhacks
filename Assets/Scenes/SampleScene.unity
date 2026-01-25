@@ -155,136 +155,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1125734649379851871, guid: 740b5ee262c98df4381adba974c8f978, type: 3}
   m_PrefabInstance: {fileID: 1964602097}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &310095639
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 310095640}
-  m_Layer: 0
-  m_Name: GestureManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &310095640
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 310095639}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -67.02833, y: 0.00001, z: -7.3153496}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 362546405}
-  m_Father: {fileID: 664519899}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &362546404
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 362546405}
-  - component: {fileID: 362546406}
-  - component: {fileID: 362546407}
-  m_Layer: 0
-  m_Name: SwipeLeftGesture (Right Hand)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &362546405
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 362546404}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1270907904}
-  m_Father: {fileID: 310095640}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &362546406
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 362546404}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08f7cfb1f9629da4494ac0840f3a3cfd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Oculus.Interaction::Oculus.Interaction.PoseDetection.ShapeRecognizerActiveState
-  _hand: {fileID: 0}
-  _fingerFeatureStateProvider: {fileID: 1387491725}
-  _shapes:
-  - {fileID: 0}
---- !u!114 &362546407
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 362546404}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6f9440d09721c849864899e8986e219, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Oculus.Interaction::Oculus.Interaction.PoseDetection.TransformRecognizerActiveState
-  _hand: {fileID: 0}
-  _transformFeatureStateProvider: {fileID: 1940338013}
-  _transformFeatureConfigs:
-    _values:
-    - _mode: 0
-      _feature: 0
-      _state: 0
-    - _mode: 0
-      _feature: 1
-      _state: 3
-    - _mode: 0
-      _feature: 2
-      _state: 6
-    - _mode: 0
-      _feature: 3
-      _state: 9
-    - _mode: 0
-      _feature: 4
-      _state: 12
-    - _mode: 0
-      _feature: 5
-      _state: 15
-    - _mode: 0
-      _feature: 6
-      _state: 18
-    - _mode: 0
-      _feature: 7
-      _state: 21
-    - _mode: 0
-      _feature: 8
-      _state: 24
-  _transformConfig:
-    PositionOffset: {x: 0, y: 0, z: 0}
-    RotationOffset: {x: 0, y: 0, z: 0}
-    UpVectorType: 0
-    FeatureThresholds: {fileID: 11400000, guid: 17cdff962ba8c40dd850c663e78268f6, type: 2}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -657,8 +527,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 244ff4bf403264643a94cefc8f8ab6f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  emailSpherePrefab: {fileID: 8875716184160826949, guid: ff4ed6664f29144dd9621d4b40a827e3, type: 3}
-  spawnDistance: 2
 --- !u!1 &664519898
 GameObject:
   m_ObjectHideFlags: 0
@@ -691,7 +559,6 @@ Transform:
   - {fileID: 1219688311}
   - {fileID: 1807949805}
   - {fileID: 629216325}
-  - {fileID: 310095640}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &730769970
@@ -1089,11 +956,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3005601684205340123, guid: 3ac7f33474277cc4598513c999a34088, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.094
       objectReference: {fileID: 0}
     - target: {fileID: 3005601684205340123, guid: 3ac7f33474277cc4598513c999a34088, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 3005601684205340123, guid: 3ac7f33474277cc4598513c999a34088, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1304,29 +1171,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bee72b37bdc704c76915a7c403a11d11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  topicName: gmail-notifications
-  subscriptionName: gmail-sub
-  pollInterval: 5
-  maxMessagesPerPoll: 10
-  autoStartPolling: 1
-  OnNewEmail:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 629216326}
-        m_TargetAssemblyTypeName: EmailManager, Assembly-CSharp
-        m_MethodName: AddEmail
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnError:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &1219688310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1354,59 +1198,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 664519899}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1270907903
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1270907904}
-  - component: {fileID: 1270907905}
-  m_Layer: 0
-  m_Name: HandMovingRight
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1270907904
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1270907903}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 362546405}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1270907905
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1270907903}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6f9440d09721c849864899e8986e219, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Oculus.Interaction::Oculus.Interaction.PoseDetection.TransformRecognizerActiveState
-  _hand: {fileID: 0}
-  _transformFeatureStateProvider: {fileID: 1940338013}
-  _transformFeatureConfigs:
-    _values: []
-  _transformConfig:
-    PositionOffset: {x: 0, y: 0, z: 0}
-    RotationOffset: {x: 0, y: 0, z: 0}
-    UpVectorType: 0
-    FeatureThresholds: {fileID: 0}
 --- !u!1 &1375737368
 GameObject:
   m_ObjectHideFlags: 0
@@ -1912,6 +1703,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 543e7b3aac5ac4b04b0b75f87b08f3f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  state: {fileID: 0}
 --- !u!1 &1886528246
 GameObject:
   m_ObjectHideFlags: 0
@@ -1957,6 +1749,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EmailState
   focusedSphere: {fileID: 0}
+  isFist: 0
 --- !u!114 &1940338013 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5171288221575130028, guid: f9dde70c6edff4d778a18a949d40d9bc, type: 3}

@@ -1860,8 +1860,9 @@ GameObject:
   - component: {fileID: 2626057858583863095}
   - component: {fileID: 7132022009557501061}
   - component: {fileID: 2316028918223501587}
-  - component: {fileID: 4537587763411027191}
   - component: {fileID: 1480173560184705767}
+  - component: {fileID: 52152066172482993}
+  - component: {fileID: 8733524385430345727}
   m_Layer: 0
   m_Name: EmailSphere
   m_TagString: Untagged
@@ -2028,29 +2029,7 @@ MonoBehaviour:
   aiCanvas: {fileID: 6756125532074807051}
   fullCanvas: {fileID: 8175000761329437024}
   grabSoundEffect: {fileID: 8300000, guid: cf0975d7fc43e44f58341cc79182d6d4, type: 3}
---- !u!114 &4537587763411027191
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8875716184160826949}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3a8411bb10db49ff9c4f2bf8c9e7ca2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EmailSphere
-  subject: 
-  body: 
-  sender: 
-  fullContent: {fileID: 3835343236037674973}
-  aiContent: {fileID: 4886361992205504559}
-  snapVelocityThreshold: 0.3
-  snapAngleThreshold: 45
-  snapOffset: {x: 0, y: -0.25, z: 0.6}
-  snapDuration: 0.8
-  state: {fileID: 0}
-  rb: {fileID: 2626057858583863095}
+  emailSphere: {fileID: 0}
 --- !u!135 &1480173560184705767
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2072,3 +2051,39 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.01
   m_Center: {x: -0.000000003259629, y: 0.000000003259629, z: 0}
+--- !u!114 &52152066172482993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8875716184160826949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7539d0739d95d4ce4a71496c968d047d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+--- !u!114 &8733524385430345727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8875716184160826949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cbfb59fb7fc14e7cb111d8df2512ddd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EmailSphere
+  subject: 
+  body: 
+  sender: 
+  fullContent: {fileID: 3835343236037674973}
+  aiContent: {fileID: 4886361992205504559}
+  snapVelocityThreshold: 0.4
+  snapAngleThreshold: 45
+  snapOffset: {x: 0, y: -0.25, z: 0.5}
+  snapDuration: 0.8
+  state: {fileID: 0}
+  focused: 0
+  rb: {fileID: 0}
