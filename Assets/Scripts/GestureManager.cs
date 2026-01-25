@@ -1,7 +1,7 @@
 using System.Diagnostics;
 using UnityEngine;
 
-public class EmailGestures : MonoBehaviour
+public class GestureManager : MonoBehaviour
 {
   [SerializeField] StateManager state;
 
@@ -13,16 +13,20 @@ public class EmailGestures : MonoBehaviour
     
     public void HandleSwipeLeft()
     {
-      UnityEngine.Debug.Log("SWIPE");
+    UnityEngine.Debug.Log("SWIPING LEFT");
+    if (state.focusedSphere == null) return;
+      EmailCanvas emailCanvas = state.focusedSphere.GetComponent<EmailCanvas>();
+      if (emailCanvas != null)
+      {
+          emailCanvas.replying = true;
+      }
     }
 
-    public void StartFist()
+    public void HandleCrunch()
     {
-      state.isFist = true;
-    }
-
-    public void EndFist()
-    {
-      state.isFist = false;
+    UnityEngine.Debug.Log("SCRUNCH");
+    if (state.focusedSphere == null) return;
+      Destroy(state.focusedSphere);
+      state.focusedSphere = null;
     }
 }

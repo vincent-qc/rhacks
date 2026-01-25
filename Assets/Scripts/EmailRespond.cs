@@ -6,10 +6,13 @@ using System.Collections;
 /// <summary>
 /// Email response workflow controller.
 /// Manages UI states: Detecting -> Generating -> Displaying
-/// Press Y to start recording email response, U to stop and generate.
+/// Activated by EmailCanvas "replying" state to immediately start recording.
 /// </summary>
 public class EmailRespond : MonoBehaviour
 {
+    [Header("Email Canvas Integration")]
+    [SerializeField] private EmailCanvas emailCanvas;
+
     [Header("UI States")]
     [SerializeField] private GameObject DetectingUI;
     [SerializeField] private GameObject GeneratingUI;
@@ -23,7 +26,7 @@ public class EmailRespond : MonoBehaviour
 
     private SpeechRecognition speechRecognition;
     private bool isInitialized = false;
-    private string currentTranscription = "";
+    private bool hasStartedReplyWorkflow = false;
 
     private IEnumerator Start()
     {
@@ -50,44 +53,71 @@ public class EmailRespond : MonoBehaviour
             speechRecognition.OnError.AddListener(OnError);
 
         // Initialize all UIs as inactive
-        if (DetectingUI != null) DetectingUI.SetActive(false);
-        if (GeneratingUI != null) GeneratingUI.SetActive(false);
-        if (DisplayingUI != null) DisplayingUI.SetActive(false);
+        HideAllUI();
 
-        emailContent = DisplayingUI.transform.Find("content").GetComponent<TextMeshProUGUI>();
+        if (DisplayingUI != null)
+        {
+             Transform contentTransform = DisplayingUI.transform.Find("content");
+             if(contentTransform != null) emailContent = contentTransform.GetComponent<TextMeshProUGUI>();
+        }
+
+        // Try to find emailCanvas if not assigned
+        if (emailCanvas == null)
+            emailCanvas = GetComponentInParent<EmailCanvas>();
+
 
         isInitialized = true;
-        Debug.Log("[EmailRespond] Ready. Press Y to start recording, U to stop.");
+        Debug.Log("[EmailRespond] Ready.");
     }
 
     private void Update()
     {
         if (!isInitialized) return;
 
-        var keyboard = Keyboard.current;
-        if (keyboard == null) return;
-
-        // Start recording on Y
-        if (keyboard.yKey.wasPressedThisFrame)
+        // Check for Reply Trigger from EmailCanvas
+        if (emailCanvas != null)
         {
-            Debug.Log("[EmailRespond] Y pressed - Starting recording...");
-            SpeechRecognition.StartRecording();
+            if (emailCanvas.replying && !hasStartedReplyWorkflow)
+            {
+                StartReplyWorkflow();
+            }
+            else if (!emailCanvas.replying && hasStartedReplyWorkflow)
+            {
+                 // Reset if we stopped replying
+                 hasStartedReplyWorkflow = false;
+                 HideAllUI();
+                 // Optionally cancel recording if in progress?
+            }
         }
 
-        // Stop recording on U
-        if (keyboard.uKey.wasPressedThisFrame)
+        // Debug/Fallback controls
+        var keyboard = Keyboard.current;
+        if (keyboard != null)
         {
-            Debug.Log("[EmailRespond] U pressed - Stopping recording...");
-            SpeechRecognition.StopRecordingAndTranscribe();
+            if (keyboard.yKey.wasPressedThisFrame) SpeechRecognition.StartRecording();
+            if (keyboard.uKey.wasPressedThisFrame) SpeechRecognition.StopRecordingAndTranscribe();
         }
     }
 
+    private void StartReplyWorkflow()
+    {
+        hasStartedReplyWorkflow = true;
+        Debug.Log("[EmailRespond] Reply activated - Starting recording immediately...");
+        
+        // Skip confirmation, start recording immediately
+        SpeechRecognition.StartRecording();
+    }
+
+    // Called by event
     private void OnRecordingStarted()
     {
-        ShowDetectingUI();
+        ShowDetectingUI(); 
+        // Note: User requested "end recording" page immediately after swiping. 
+        // "DetectingUI" seems to be the "Listening..." state which usually has the stop button/visuals. 
         Debug.Log("[EmailRespond] Detecting speech...");
     }
 
+    // Called by event
     private void OnRecordingStopped()
     {
         ShowGeneratingUI();
@@ -96,11 +126,9 @@ public class EmailRespond : MonoBehaviour
 
     private void OnTranscriptionComplete(string text)
     {
-        currentTranscription = text;
         UpdateTranscription(text);
 
-        // Generate email will be called automatically by SpeechRecognition
-        // But we'll also listen for the result here
+        // Generate email will be called automatically by SpeechRecognition logic or manually here
         GenerateEmail.Generate(text, OnEmailGenerated);
     }
 
@@ -114,8 +142,9 @@ public class EmailRespond : MonoBehaviour
         }
         else
         {
-            HideAllUI();
+            // Keep previous UI or show error?
             Debug.LogError("[EmailRespond] Failed to generate email");
+             // Maybe go back to detecting or show error state
         }
     }
 
@@ -123,6 +152,7 @@ public class EmailRespond : MonoBehaviour
     {
         HideAllUI();
         Debug.LogError($"[EmailRespond] Error: {error}");
+        hasStartedReplyWorkflow = false; // Reset to allow trying again
     }
 
     private void HideAllUI()

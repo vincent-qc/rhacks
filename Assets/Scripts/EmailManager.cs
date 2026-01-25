@@ -67,11 +67,14 @@ public class EmailManager : MonoBehaviour
                 newSphere.transform.LookAt(Camera.main.transform);
             }
 
-            EmailSphere sphere = newSphere.GetComponent<EmailSphere>();
-            if (sphere != null)
+            EmailContent content = newSphere.GetComponent<EmailContent>();
+            if (content != null)
             {
-                sphere.Initialize(email.from, email.subject, email.snippet, summary, null, category, priority);
+                content.Initialize(email.from, email.subject, email.snippet, summary, null, category, priority);
             }
+            // Ensure EmailSphere (if needed) does its own Start logic
+            EmailSphere sphere = newSphere.GetComponent<EmailSphere>();
+            // If there was any intialization on sphere, do it here. Currently it has none.
         });
     }
 

@@ -3,17 +3,9 @@ using TMPro;
 using System.Diagnostics;
 using Oculus.Interaction;
 
+[RequireComponent(typeof(EmailContent))]
 public class EmailSphere : MonoBehaviour
 {
-  public string subject;
-  public string body;
-  public string sender;
-  public EmailAITool.EmailCategory category;
-  public int priority;
-
-  [SerializeField] private TextMeshProUGUI fullContent;
-  [SerializeField] private TextMeshProUGUI aiContent;
-
   [Header("Category Materials")]
   [SerializeField] private Material workMaterial;
   [SerializeField] private Material personalMaterial;
@@ -30,8 +22,10 @@ public class EmailSphere : MonoBehaviour
   private StateManager state;
 
   public bool focused = false;
-  [SerializeField] private Rigidbody rb;
+  [SerializeField]  Rigidbody rb;
   [SerializeField] private Grabbable grabbable;
+  
+  private EmailContent emailContent;
 
   
   private bool isGrabbed = false;
@@ -44,7 +38,10 @@ public class EmailSphere : MonoBehaviour
     if (this.state == null) {
       UnityEngine.Debug.LogError("StateManager not found");
     }
+    
+    emailContent = GetComponent<EmailContent>();
     ApplyCategoryVisuals();
+    
     if (grabbable == null) grabbable = GetComponent<Grabbable>();
     
     // Initialize targetSnapPosition if starting focused
@@ -66,45 +63,6 @@ public class EmailSphere : MonoBehaviour
           grabbable.WhenPointerEventRaised -= OnPointerEvent;
   }
 
-  public void Initialize(string sender, string subject, string body)
-  {
-    this.sender = sender;
-    this.subject = subject;
-    this.body = body;
-
-    UpdateText();
-  }
-
-  public void Initialize(string sender, string subject, string body, AudioClip audioClip)
-  {
-    this.sender = sender;
-    this.subject = subject;
-    this.body = body;
-
-    EmailAudio emailAudio = GetComponent<EmailAudio>();
-    if (emailAudio == null) emailAudio = gameObject.AddComponent<EmailAudio>();
-    emailAudio.SetAudioClip(audioClip);
-
-    UpdateText();
-  }
-
-  public void Initialize(string sender, string subject, string body, string summary, AudioClip audioClip, EmailAITool.EmailCategory category, int priority)
-  {
-    this.sender = sender;
-    this.subject = subject;
-    this.body = body;
-    this.summary = summary;
-    this.category = category;
-    this.priority = priority;
-
-    EmailAudio emailAudio = GetComponent<EmailAudio>();
-    if (emailAudio == null) emailAudio = gameObject.AddComponent<EmailAudio>();
-    emailAudio.SetAudioClip(audioClip);
-
-    UpdateText();
-    ApplyCategoryVisuals();
-  }
-
   private void ApplyCategoryVisuals()
   {
     MeshRenderer sphereRenderer = GetComponent<MeshRenderer>();
@@ -114,14 +72,16 @@ public class EmailSphere : MonoBehaviour
       return;
     }
 
-    Material materialToApply = GetMaterialForCategory(category);
+    if (emailContent == null) return;
+
+    Material materialToApply = GetMaterialForCategory(emailContent.category);
     if (materialToApply != null)
     {
       sphereRenderer.material = materialToApply;
     }
     else
     {
-      UnityEngine.Debug.LogWarning($"EmailSphere: No material assigned for category {category}");
+      UnityEngine.Debug.LogWarning($"EmailSphere: No material assigned for category {emailContent.category}");
     }
   }
 
@@ -257,24 +217,6 @@ public class EmailSphere : MonoBehaviour
       ejectDirection.Normalize();
       rb.AddForce(ejectDirection * 2.0f, ForceMode.Impulse);
       rb.AddTorque(UnityEngine.Random.insideUnitSphere * 1.0f, ForceMode.Impulse);
-    }
-  }
-
-  private void UpdateText()
-  {
-    string content = $"From: {sender}\nSubject: {subject}\n\n{body}";
-    UnityEngine.Debug.Log(content);
-    if (fullContent != null) fullContent.text = content;
-    if (aiContent != null) aiContent.text = content;
-  }
-
-  void OnTriggerEnter(Collider col)
-  {
-    if(col.gameObject.name == "Collider") {
-      if (state.isFist) {
-        state.focusedSphere = null;
-        Destroy(this.gameObject);
-      }
     }
   }
 

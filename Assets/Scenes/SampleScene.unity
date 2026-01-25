@@ -1221,9 +1221,9 @@ MonoBehaviour:
   _whenActivated:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1878060606}
+      - m_Target: {fileID: 1878060608}
         m_TargetAssemblyTypeName: EmailGestures, Assembly-CSharp
-        m_MethodName: StartFist
+        m_MethodName: HandleCrunch
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1590,7 +1590,19 @@ MonoBehaviour:
   _activeState: {fileID: 1458442828}
   _whenActivated:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1878060608}
+        m_TargetAssemblyTypeName: GestureManager, Assembly-CSharp
+        m_MethodName: HandleSwipeLeft
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _whenDeactivated:
     m_PersistentCalls:
       m_Calls: []
@@ -1855,6 +1867,7 @@ GameObject:
   - component: {fileID: 1878060604}
   - component: {fileID: 1878060606}
   - component: {fileID: 1878060607}
+  - component: {fileID: 1878060608}
   m_Layer: 0
   m_Name: Gestures
   m_TagString: Untagged
@@ -1905,6 +1918,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a5707037edf346fcb3f998688201690, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GestureDebug
+--- !u!114 &1878060608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878060603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 543e7b3aac5ac4b04b0b75f87b08f3f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EmailGestures
+  state: {fileID: 1886528248}
 --- !u!1 &1886528246
 GameObject:
   m_ObjectHideFlags: 0
@@ -1951,6 +1977,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EmailState
   focusedSphere: {fileID: 0}
   isFist: 0
+  sendingMail: 0
 --- !u!114 &1940338013 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5171288221575130028, guid: f9dde70c6edff4d778a18a949d40d9bc, type: 3}
@@ -2147,7 +2174,19 @@ MonoBehaviour:
   _activeState: {fileID: 1964602107}
   _whenActivated:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1878060608}
+        m_TargetAssemblyTypeName: EmailGestures, Assembly-CSharp
+        m_MethodName: HandleSwipeLeft
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _whenDeactivated:
     m_PersistentCalls:
       m_Calls: []

@@ -1,2 +1,15 @@
 fileFormatVersion: 2
-guid: 836cfb89fc31c4c4f93ee0c3fb104761
+guid: 440b65d1e45a267489377348e3106d52
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - grabbable: {instanceID: 0}
+  - aiCanvas: {instanceID: 0}
+  - fullCanvas: {instanceID: 0}
+  - grabSoundEffect: {fileID: 8300000, guid: cf0975d7fc43e44f58341cc79182d6d4, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
