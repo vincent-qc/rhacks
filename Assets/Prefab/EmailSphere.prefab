@@ -2028,9 +2028,11 @@ MonoBehaviour:
   grabbable: {fileID: 7132022009557501061}
   aiCanvas: {fileID: 6756125532074807051}
   fullCanvas: {fileID: 8175000761329437024}
-  grabSoundEffect: {fileID: 8300000, guid: cf0975d7fc43e44f58341cc79182d6d4, type: 3}
+  grabSoundEffect: {fileID: 8300000, guid: 8c91abc3524a2bc41a12c01c801cdcad, type: 3}
   profileImage: {fileID: 0}
   emailSphere: {fileID: 0}
+  replySphere: {fileID: 0}
+  deleteSphere: {fileID: 0}
 --- !u!135 &1480173560184705767
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2092,6 +2094,7 @@ MonoBehaviour:
   snapAngleThreshold: 45
   snapOffset: {x: 0, y: -0.25, z: 0.5}
   snapDuration: 0.8
-  state: {fileID: 0}
   focused: 0
   rb: {fileID: 0}
+  grabbable: {fileID: 0}
+  flickVelocityThreshold: 0.15
