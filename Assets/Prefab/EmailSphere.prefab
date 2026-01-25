@@ -2027,6 +2027,7 @@ MonoBehaviour:
   grabbable: {fileID: 7132022009557501061}
   aiCanvas: {fileID: 6756125532074807051}
   fullCanvas: {fileID: 8175000761329437024}
+  grabSoundEffect: {fileID: 0}
 --- !u!114 &4537587763411027191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2046,8 +2047,10 @@ MonoBehaviour:
   aiContent: {fileID: 4886361992205504559}
   snapVelocityThreshold: 0.3
   snapAngleThreshold: 45
-  snapOffset: {x: 0, y: 0, z: 0.5}
-  lerpSpeed: 10
+  snapOffset: {x: 0, y: -2, z: -1}
+  snapDuration: 0.8
+  state: {fileID: 0}
+  focused: 0
   rb: {fileID: 2626057858583863095}
 --- !u!135 &1480173560184705767
 SphereCollider:

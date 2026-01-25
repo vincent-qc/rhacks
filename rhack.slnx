@@ -84,12 +84,12 @@
   <Project Path="Meta.XR.MultiplayerBlocks.Fusion.Editor.csproj" />
   <Project Path="Unity.AI.Navigation.Updater.csproj" />
   <Project Path="Meta.XR.Editor.BuildingBlocks.AIBlocks.csproj" />
+  <Project Path="Assembly-CSharp.csproj" />
   <Project Path="Meta.XR.Editor.ToolingSupport.csproj" />
   <Project Path="Unity.XR.ARSubsystems.Editor.csproj" />
   <Project Path="Oculus.Interaction.OVR.Samples.csproj" />
   <Project Path="UnityEditor.UI.csproj" />
   <Project Path="Unity.RenderPipelines.Universal.2D.Editor.Overrides.csproj" />
-  <Project Path="Assembly-CSharp.csproj" />
   <Project Path="VoiceSDK.Dictation.Runtime.csproj" />
   <Project Path="Meta.XR.Editor.PlayCompanion.csproj" />
   <Project Path="Meta.XR.Editor.Reflection.csproj" />
