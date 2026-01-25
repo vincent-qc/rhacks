@@ -12,6 +12,7 @@ using UnityEngine.Networking;
 /// </summary>
 public class SpeechRecognition : MonoBehaviour
 {
+
     private static SpeechRecognition instance;
 
     [Header("Google Cloud Settings")]
@@ -291,6 +292,20 @@ public class SpeechRecognition : MonoBehaviour
                     Debug.Log($"[SpeechRecognition] Transcription: {transcription}");
                     OnTranscriptionComplete?.Invoke(transcription);
                     callback?.Invoke(transcription);
+
+                    // Send to GenerateEmail
+                    Debug.Log("[SpeechRecognition] Sending to GenerateEmail...");
+                    GenerateEmail.Generate(transcription, (generatedEmail) =>
+                    {
+                        if (!string.IsNullOrEmpty(generatedEmail))
+                        {
+                            Debug.Log($"[SpeechRecognition] Email generated:\n{generatedEmail}");
+                        }
+                        else
+                        {
+                            Debug.LogError("[SpeechRecognition] Failed to generate email");
+                        }
+                    });
                 }
                 else
                 {
