@@ -17,12 +17,20 @@ public class EmailSphere : MonoBehaviour
   [SerializeField] private float snapAngleThreshold = 45.0f;
   [SerializeField] private Vector3 snapOffset = new Vector3(0, -1.8f, 1.8f);
   [SerializeField] private float snapDuration = 0.8f;
-  [SerializeField] private EmailState state;
+  [SerializeField] private StateManager state;
 
   public bool focused = false;
   [SerializeField] private Rigidbody rb;
 
   private AudioClip cachedAudioClip;
+
+  void Start() {
+    GameObject stateManager = GameObject.Find("StateManager");
+    this.state = stateManager.GetComponent<StateManager>();
+    if (this.state == null) {
+      UnityEngine.Debug.LogError("StateManager not found");
+    }
+  }
 
   public void Initialize(string sender, string subject, string body)
   {
