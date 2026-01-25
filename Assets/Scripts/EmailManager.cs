@@ -4,6 +4,7 @@ public class EmailManager : MonoBehaviour
 {
     [SerializeField] public GameObject emailSpherePrefab;
     [SerializeField] private float spawnDistance = 2.0f;
+    [SerializeField] private AudioClip spawnSoundClip;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -54,6 +55,12 @@ public class EmailManager : MonoBehaviour
 
             Vector3 spawnPos = GeneratePosition();
             GameObject newSphere = Instantiate(emailSpherePrefab, spawnPos, Quaternion.identity);
+
+            // Play spawn sound effect
+            if (spawnSoundClip != null)
+            {
+                AudioSource.PlayClipAtPoint(spawnSoundClip, spawnPos);
+            }
 
             if (Camera.main != null)
             {

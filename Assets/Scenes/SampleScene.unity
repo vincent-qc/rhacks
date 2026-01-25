@@ -666,6 +666,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EmailManager
   emailSpherePrefab: {fileID: 8875716184160826949, guid: ff4ed6664f29144dd9621d4b40a827e3, type: 3}
   spawnDistance: 2
+  spawnSoundClip: {fileID: 8300000, guid: c379a4ea0234445eeb8ddf7d8cbd99ba, type: 3}
 --- !u!1 &664519898
 GameObject:
   m_ObjectHideFlags: 0
