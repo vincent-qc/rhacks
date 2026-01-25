@@ -26,16 +26,17 @@ public class EmailSphere : MonoBehaviour
   [SerializeField] private float snapVelocityThreshold = 0.2f;
   [SerializeField] private float snapAngleThreshold = 45.0f;
   [SerializeField] private Vector3 snapOffset = new Vector3(0, -0.25f, 0.5f);
-  [SerializeField] private float snapDuration = 0.8f;
+
   private StateManager state;
 
   public bool focused = false;
   [SerializeField] private Rigidbody rb;
   [SerializeField] private Grabbable grabbable;
-  [SerializeField] private float flickVelocityThreshold = 0.15f;
+
   
   private bool isGrabbed = false;
-  private Coroutine snapCoroutine;
+
+  private Vector3 targetSnapPosition;
 
   void Start() {
     GameObject stateManager = GameObject.Find("StateManager");
@@ -45,6 +46,12 @@ public class EmailSphere : MonoBehaviour
     }
     ApplyCategoryVisuals();
     if (grabbable == null) grabbable = GetComponent<Grabbable>();
+    
+    // Initialize targetSnapPosition if starting focused
+    if (focused)
+    {
+        targetSnapPosition = transform.position;
+    }
   }
 
   void OnEnable()
@@ -81,11 +88,12 @@ public class EmailSphere : MonoBehaviour
     UpdateText();
   }
 
-  public void Initialize(string sender, string subject, string body, AudioClip audioClip, EmailAITool.EmailCategory category, int priority)
+  public void Initialize(string sender, string subject, string body, string summary, AudioClip audioClip, EmailAITool.EmailCategory category, int priority)
   {
     this.sender = sender;
     this.subject = subject;
     this.body = body;
+    this.summary = summary;
     this.category = category;
     this.priority = priority;
 
@@ -149,17 +157,28 @@ public class EmailSphere : MonoBehaviour
     {
         if (!isGrabbed)
         {
-            // Spring back to focused position
-            Vector3 targetPos = Camera.main.transform.TransformPoint(snapOffset);
-            
+            // Spring back to fixed world position
             // If checking for snap resulted in a long distance, lerp fast. 
             // If we are just maintaining position, lerp smooth.
-            transform.position = Vector3.Lerp(transform.position, targetPos, Time.deltaTime * 5f);
+            transform.position = Vector3.Lerp(transform.position, targetSnapPosition, Time.deltaTime * 5.0f);
             
             // Ensure kinematic to prevent gravity fall
             if (rb != null && !rb.isKinematic) rb.isKinematic = true;
+
         }
         return;
+    }
+    
+    if (state != null && grabbable != null)
+    {
+        if (state.isFist)
+        {
+            if (grabbable.enabled) grabbable.enabled = false;
+        }
+        else
+        {
+            if (!grabbable.enabled) grabbable.enabled = true;
+        }
     }
     
     CheckForSnap();
@@ -204,6 +223,9 @@ public class EmailSphere : MonoBehaviour
     // Set as focused sphere
     focused = true;
     state.focusedSphere = this.gameObject;
+    
+    // Determine stationary target position in world space
+    targetSnapPosition = Camera.main.transform.TransformPoint(snapOffset);
 
     // Stop physics
     if (rb != null)
@@ -213,30 +235,27 @@ public class EmailSphere : MonoBehaviour
       rb.angularVelocity = Vector3.zero;
     }
 
-    // We let Update() handle the movement to the snap position now
     yield return null;
   }
 
   public void Eject()
   {
     focused = false;
-    // grabbable remains enabled
-
-    // Stop any ongoing snap coroutines on this object
     StopAllCoroutines();
+    StartCoroutine(EjectRoutine());
+  }
+
+  private System.Collections.IEnumerator EjectRoutine()
+  {
+    yield return new WaitForFixedUpdate();
 
     if (rb != null)
     {
       rb.isKinematic = false;
 
-      // Calculate ejection direction: Forward from camera + slightly up
       Vector3 ejectDirection = Camera.main.transform.forward + (Camera.main.transform.up * 0.5f);
       ejectDirection.Normalize();
-
-      // Apply force
       rb.AddForce(ejectDirection * 2.0f, ForceMode.Impulse);
-
-      // Add some random torque for effect
       rb.AddTorque(UnityEngine.Random.insideUnitSphere * 1.0f, ForceMode.Impulse);
     }
   }
@@ -251,7 +270,12 @@ public class EmailSphere : MonoBehaviour
 
   void OnTriggerEnter(Collider col)
   {
-    UnityEngine.Debug.Log($"Collided with: {col.gameObject.name}");
+    if(col.gameObject.name == "Collider") {
+      if (state.isFist) {
+        state.focusedSphere = null;
+        Destroy(this.gameObject);
+      }
+    }
   }
 
   private void OnPointerEvent(PointerEvent evt)
@@ -260,39 +284,21 @@ public class EmailSphere : MonoBehaviour
       {
           case PointerEventType.Select:
               isGrabbed = true;
-              StopAllCoroutines(); // Stop any initial snap coroutine if happening
+              StopAllCoroutines();
               break;
 
           case PointerEventType.Unselect:
               isGrabbed = false;
-              
-              if (focused && rb != null)
-              {
-                  // Check for flick
-                  // Use Rigidbody velocity which should have been imparted by the grabber release
-                  // Note: SDK usually applies velocity to RB on Unselect.
-                  // We check next frame or assume it's set.
-                  // Actually, just checking directly might work if SDK order allows.
-                  // If not, we might need a small delay, but let's try direct first.
-                  
-                  float speed = rb.linearVelocity.magnitude;
-                  Vector3 dir = rb.linearVelocity.normalized;
-                  Vector3 camFwd = Camera.main.transform.forward;
-                  
-                  bool isFlickAway = speed > flickVelocityThreshold && Vector3.Dot(dir, camFwd) > 0.0f;
-                  
-                  if (isFlickAway)
-                  {
-                      Eject();
-                  }
-                  else
-                  {
-                      // Spring back
-                      rb.isKinematic = true;
-                      rb.linearVelocity = Vector3.zero;
-                  }
+              if(focused) {
+                Vector3 currentPos = this.gameObject.transform.position;
+                float distance = Vector3.Distance(currentPos, targetSnapPosition);
+                if (distance > 0.15f) {
+                    state.focusedSphere = null;
+                    Eject();
+                    UnityEngine.Debug.Log("Ejecting");
+                }
               }
               break;
-      }
+    }
   }
 }

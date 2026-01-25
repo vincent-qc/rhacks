@@ -52,7 +52,7 @@ public class EmailManager : MonoBehaviour
             EmailAITool.EmailCategory category = analysis?.category ?? EmailAITool.EmailCategory.Other;
             int priority = analysis?.priority ?? 1;
 
-            Vector3 spawnPos = GeneratePosition();
+            Vector3 spawnPos = GeneratePosition(category);
             GameObject newSphere = Instantiate(emailSpherePrefab, spawnPos, Quaternion.identity);
 
             if (Camera.main != null)
@@ -63,22 +63,32 @@ public class EmailManager : MonoBehaviour
             EmailSphere sphere = newSphere.GetComponent<EmailSphere>();
             if (sphere != null)
             {
-                sphere.Initialize(email.from, email.subject, summary, null, category, priority);
+                sphere.Initialize(email.from, email.subject, email.snippet, summary, null, category, priority);
             }
         });
     }
 
-    private Vector3 GeneratePosition()
+    private Vector3 GeneratePosition(EmailAITool.EmailCategory category)
     {
         if (Camera.main == null) return transform.position;
 
         Transform camTransform = Camera.main.transform;
 
+        float distance = 5.0f;
+        switch (category)
+        {
+            case EmailAITool.EmailCategory.Personal: distance = 1.5f; break;
+            case EmailAITool.EmailCategory.Work: distance = 2.5f; break;
+            case EmailAITool.EmailCategory.Social: distance = 3.2f; break;
+            case EmailAITool.EmailCategory.Promotions: distance = 4.0f; break;
+            case EmailAITool.EmailCategory.Other: default: distance = 5.0f; break;
+        }
+
         // Random offsets to keep it in FOV but not dead center
-        float xOffset = UnityEngine.Random.Range(-0.5f, 0.5f);
-        float yOffset = UnityEngine.Random.Range(-0.2f, 0.2f); // Keep height variation smaller
+        float xOffset = UnityEngine.Random.Range(-1.2f, 1.2f);
+        float yOffset = UnityEngine.Random.Range(-0.4f, 0.4f); // Keep height variation smaller
         Vector3 randomOffset = (camTransform.right * xOffset) + (camTransform.up * yOffset);
 
-        return camTransform.position + (camTransform.forward * spawnDistance) + randomOffset;
+        return camTransform.position + (camTransform.forward * distance) + randomOffset;
     }
 }

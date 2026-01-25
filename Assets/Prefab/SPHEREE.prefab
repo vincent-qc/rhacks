@@ -900,7 +900,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1117402020075091773}
-  - component: {fileID: 2893405030655953933}
   m_Layer: 0
   m_Name: SPHEREE
   m_TagString: Untagged
@@ -924,21 +923,6 @@ Transform:
   - {fileID: 402224734290252422}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2893405030655953933
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6309065611868239572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0fe1a52dcbb74270a6bac7c9af35672, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  aiCanvas: {fileID: 6624638658525280094}
-  fullCanvas: {fileID: 3597772710046022554}
-  speed: 5
 --- !u!1 &6624638658525280094
 GameObject:
   m_ObjectHideFlags: 0

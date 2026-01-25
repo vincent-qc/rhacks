@@ -616,7 +616,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 629216325}
-  - component: {fileID: 629216326}
   - component: {fileID: 629216327}
   m_Layer: 0
   m_Name: EmailManager
@@ -640,18 +639,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 664519899}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &629216326
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 629216324}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 244ff4bf403264643a94cefc8f8ab6f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
 --- !u!114 &629216327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2235,7 +2222,7 @@ PrefabInstance:
       objectReference: {fileID: 5732293067331325986}
     - target: {fileID: 288723996832638293, guid: f9dde70c6edff4d778a18a949d40d9bc, type: 3}
       propertyPath: _maxRayLength
-      value: 20
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 615324786391412158, guid: f9dde70c6edff4d778a18a949d40d9bc, type: 3}
       propertyPath: m_RootOrder
@@ -3106,7 +3093,7 @@ PrefabInstance:
       objectReference: {fileID: 5732293067331325986}
     - target: {fileID: 288723996832638293, guid: f9dde70c6edff4d778a18a949d40d9bc, type: 3}
       propertyPath: _maxRayLength
-      value: 20
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 615324786391412158, guid: f9dde70c6edff4d778a18a949d40d9bc, type: 3}
       propertyPath: m_RootOrder
