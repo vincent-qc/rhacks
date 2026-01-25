@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using System.Diagnostics;
+using Oculus.Interaction;
 
 public class EmailSphere : MonoBehaviour
 {
@@ -26,10 +27,15 @@ public class EmailSphere : MonoBehaviour
   [SerializeField] private float snapAngleThreshold = 45.0f;
   [SerializeField] private Vector3 snapOffset = new Vector3(0, -0.25f, 0.5f);
   [SerializeField] private float snapDuration = 0.8f;
-  [SerializeField] private StateManager state;
+  private StateManager state;
 
   public bool focused = false;
   [SerializeField] private Rigidbody rb;
+  [SerializeField] private Grabbable grabbable;
+  [SerializeField] private float flickVelocityThreshold = 0.15f;
+  
+  private bool isGrabbed = false;
+  private Coroutine snapCoroutine;
 
   void Start() {
     GameObject stateManager = GameObject.Find("StateManager");
@@ -38,6 +44,19 @@ public class EmailSphere : MonoBehaviour
       UnityEngine.Debug.LogError("StateManager not found");
     }
     ApplyCategoryVisuals();
+    if (grabbable == null) grabbable = GetComponent<Grabbable>();
+  }
+
+  void OnEnable()
+  {
+      if (grabbable != null)
+          grabbable.WhenPointerEventRaised += OnPointerEvent;
+  }
+
+  void OnDisable()
+  {
+      if (grabbable != null)
+          grabbable.WhenPointerEventRaised -= OnPointerEvent;
   }
 
   public void Initialize(string sender, string subject, string body)
@@ -119,14 +138,36 @@ public class EmailSphere : MonoBehaviour
   {
     Vector3 lookTarget = Camera.main.transform.position;
     lookTarget.y -= 0.25f; // Look slightly below eye level
-    this.gameObject.transform.LookAt(lookTarget);
-    if (focused) return;
+    
+    // Only look at camera if we are not being grabbed (let user rotate it)
+    if (!isGrabbed) 
+    {
+        this.gameObject.transform.LookAt(lookTarget);
+    }
+
+    if (focused) 
+    {
+        if (!isGrabbed)
+        {
+            // Spring back to focused position
+            Vector3 targetPos = Camera.main.transform.TransformPoint(snapOffset);
+            
+            // If checking for snap resulted in a long distance, lerp fast. 
+            // If we are just maintaining position, lerp smooth.
+            transform.position = Vector3.Lerp(transform.position, targetPos, Time.deltaTime * 5f);
+            
+            // Ensure kinematic to prevent gravity fall
+            if (rb != null && !rb.isKinematic) rb.isKinematic = true;
+        }
+        return;
+    }
+    
     CheckForSnap();
   }
 
   private void CheckForSnap()
   {
-    if (rb == null || Camera.main == null) return;
+    if (rb == null || Camera.main == null || isGrabbed) return;
 
     // Check if there is already a focused sphere
     if (state.focusedSphere != null)
@@ -164,6 +205,7 @@ public class EmailSphere : MonoBehaviour
     focused = true;
     state.focusedSphere = this.gameObject;
 
+    // Stop physics
     if (rb != null)
     {
       rb.isKinematic = true;
@@ -171,32 +213,14 @@ public class EmailSphere : MonoBehaviour
       rb.angularVelocity = Vector3.zero;
     }
 
-    // Capture starting world position
-    Vector3 startPos = transform.position;
-
-    // We will update targetPos dynamically in the loop to chase the camera
-    float elapsed = 0f;
-
-    while (elapsed < snapDuration)
-    {
-      elapsed += Time.deltaTime;
-      float t = elapsed / snapDuration;
-      float easeT = 1f - Mathf.Pow(1f - t, 3f);
-
-      // Determine where the "slot" is in world space right now
-      Vector3 currentTargetPos = Camera.main.transform.TransformPoint(snapOffset);
-
-      transform.position = Vector3.Lerp(startPos, currentTargetPos, easeT);
-      yield return null;
-    }
-
-    // Ensure we end exactly at the final target position relative to the camera at that moment
-    transform.position = Camera.main.transform.TransformPoint(snapOffset);
+    // We let Update() handle the movement to the snap position now
+    yield return null;
   }
 
   public void Eject()
   {
     focused = false;
+    // grabbable remains enabled
 
     // Stop any ongoing snap coroutines on this object
     StopAllCoroutines();
@@ -228,5 +252,47 @@ public class EmailSphere : MonoBehaviour
   void OnTriggerEnter(Collider col)
   {
     UnityEngine.Debug.Log($"Collided with: {col.gameObject.name}");
+  }
+
+  private void OnPointerEvent(PointerEvent evt)
+  {
+      switch (evt.Type)
+      {
+          case PointerEventType.Select:
+              isGrabbed = true;
+              StopAllCoroutines(); // Stop any initial snap coroutine if happening
+              break;
+
+          case PointerEventType.Unselect:
+              isGrabbed = false;
+              
+              if (focused && rb != null)
+              {
+                  // Check for flick
+                  // Use Rigidbody velocity which should have been imparted by the grabber release
+                  // Note: SDK usually applies velocity to RB on Unselect.
+                  // We check next frame or assume it's set.
+                  // Actually, just checking directly might work if SDK order allows.
+                  // If not, we might need a small delay, but let's try direct first.
+                  
+                  float speed = rb.linearVelocity.magnitude;
+                  Vector3 dir = rb.linearVelocity.normalized;
+                  Vector3 camFwd = Camera.main.transform.forward;
+                  
+                  bool isFlickAway = speed > flickVelocityThreshold && Vector3.Dot(dir, camFwd) > 0.0f;
+                  
+                  if (isFlickAway)
+                  {
+                      Eject();
+                  }
+                  else
+                  {
+                      // Spring back
+                      rb.isKinematic = true;
+                      rb.linearVelocity = Vector3.zero;
+                  }
+              }
+              break;
+      }
   }
 }

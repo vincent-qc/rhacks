@@ -58,7 +58,6 @@ public class EmailManager : MonoBehaviour
             if (Camera.main != null)
             {
                 newSphere.transform.LookAt(Camera.main.transform);
-                newSphere.transform.Rotate(0, 180, 0);
             }
 
             EmailSphere sphere = newSphere.GetComponent<EmailSphere>();

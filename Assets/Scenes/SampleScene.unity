@@ -483,6 +483,130 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!1001 &566834164
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 773190231}
+    m_Modifications:
+    - target: {fileID: 435407831072319256, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
+      propertyPath: _leftEyeAnchor
+      value: 
+      objectReference: {fileID: 773190237}
+    - target: {fileID: 435407831072319256, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
+      propertyPath: _rightEyeAnchor
+      value: 
+      objectReference: {fileID: 773190235}
+    - target: {fileID: 435407831072319256, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
+      propertyPath: _centerEyeCamera
+      value: 
+      objectReference: {fileID: 773190232}
+    - target: {fileID: 2336446269904782542, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
+      propertyPath: _leftEyeAnchor
+      value: 
+      objectReference: {fileID: 773190237}
+    - target: {fileID: 2336446269904782542, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
+      propertyPath: _rightEyeAnchor
+      value: 
+      objectReference: {fileID: 773190235}
+    - target: {fileID: 2336446269904782542, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
+      propertyPath: _centerEyeCamera
+      value: 
+      objectReference: {fileID: 773190232}
+    - target: {fileID: 4148778239110795873, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
+      propertyPath: m_Name
+      value: '[BuildingBlock] OVRInteractionComprehensive'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4397664628265918113, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4397664628265918113, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4397664628265918113, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4397664628265918113, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4397664628265918113, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4397664628265918113, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4397664628265918113, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4397664628265918113, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4397664628265918113, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4397664628265918113, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5801245061754409418, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
+      propertyPath: _playerEyes
+      value: 
+      objectReference: {fileID: 773190234}
+    - target: {fileID: 5801245061754409418, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
+      propertyPath: _playerOrigin
+      value: 
+      objectReference: {fileID: 773190231}
+    - target: {fileID: 6267690530596161800, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
+      propertyPath: _ovrCameraRig
+      value: 
+      objectReference: {fileID: 773190230}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4148778239110795873, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 566834167}
+  m_SourcePrefab: {fileID: 100100000, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
+--- !u!4 &566834165 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4397664628265918113, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
+  m_PrefabInstance: {fileID: 566834164}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &566834166 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4148778239110795873, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
+  m_PrefabInstance: {fileID: 566834164}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &566834167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 566834166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b023183069df224080314a560e6e1ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Meta.XR.BuildingBlocks::Meta.XR.BuildingBlocks.BuildingBlock
+  blockId: 81f55626-5fad-45e9-a1df-184f330da7ba
+  instanceId: e4827735-9156-474c-aa6e-c2da7475e4b3
+  version: 1
+  installationRoutineCheckpoint:
+    _installationRoutineId: 2063f481-1b63-4eda-9ee8-a00df98536bc
+    _installationVariants: []
 --- !u!1 &629216324
 GameObject:
   m_ObjectHideFlags: 0
@@ -493,6 +617,7 @@ GameObject:
   m_Component:
   - component: {fileID: 629216325}
   - component: {fileID: 629216326}
+  - component: {fileID: 629216327}
   m_Layer: 0
   m_Name: EmailManager
   m_TagString: Untagged
@@ -527,6 +652,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 244ff4bf403264643a94cefc8f8ab6f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+--- !u!114 &629216327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 629216324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccaabed2c590c4a6d839728139483c97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EmailManager
+  emailSpherePrefab: {fileID: 8875716184160826949, guid: ff4ed6664f29144dd9621d4b40a827e3, type: 3}
+  spawnDistance: 2
 --- !u!1 &664519898
 GameObject:
   m_ObjectHideFlags: 0
@@ -679,6 +818,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 400004, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5895320934349805317}
+    - targetCorrespondingSourceObject: {fileID: 400004, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 566834165}
     - targetCorrespondingSourceObject: {fileID: 459718, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 207147541}
@@ -1091,9 +1233,9 @@ MonoBehaviour:
   _whenActivated:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1878060605}
-        m_TargetAssemblyTypeName: GestureDebug, Assembly-CSharp
-        m_MethodName: TestLogR
+      - m_Target: {fileID: 1878060606}
+        m_TargetAssemblyTypeName: EmailGestures, Assembly-CSharp
+        m_MethodName: StartFist
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1105,7 +1247,19 @@ MonoBehaviour:
         m_CallState: 2
   _whenDeactivated:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1878060606}
+        m_TargetAssemblyTypeName: EmailGestures, Assembly-CSharp
+        m_MethodName: EndFist
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _emitOnFirstUpdate: 1
 --- !u!114 &1114892450 stripped
 MonoBehaviour:
@@ -1150,8 +1304,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1219688311}
-  - component: {fileID: 1219688310}
-  - component: {fileID: 1219688309}
+  - component: {fileID: 1219688312}
   m_Layer: 0
   m_Name: GCloudManager
   m_TagString: Untagged
@@ -1159,30 +1312,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1219688309
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1219688308}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bee72b37bdc704c76915a7c403a11d11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
---- !u!114 &1219688310
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1219688308}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27a5bb67a755543aaa1b3891fd913e46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
 --- !u!4 &1219688311
 Transform:
   m_ObjectHideFlags: 0
@@ -1198,6 +1327,41 @@ Transform:
   m_Children: []
   m_Father: {fileID: 664519899}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1219688312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1219688308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f7e77ba44c3249e1ab2f59aac8f10f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GCloudPubSubManager
+  topicName: gmail-notifications
+  subscriptionName: gmail-sub
+  pollInterval: 5
+  maxMessagesPerPoll: 10
+  autoStartPolling: 1
+  OnNewEmail:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 629216327}
+        m_TargetAssemblyTypeName: EmailManager, Assembly-CSharp
+        m_MethodName: AddEmail
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnError:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1375737368
 GameObject:
   m_ObjectHideFlags: 0
@@ -1377,19 +1541,7 @@ MonoBehaviour:
   _activeState: {fileID: 1458442828}
   _whenActivated:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1878060605}
-        m_TargetAssemblyTypeName: GestureDebug, Assembly-CSharp
-        m_MethodName: TestLog
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   _whenDeactivated:
     m_PersistentCalls:
       m_Calls: []
@@ -1652,8 +1804,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1878060604}
-  - component: {fileID: 1878060605}
   - component: {fileID: 1878060606}
+  - component: {fileID: 1878060607}
   m_Layer: 0
   m_Name: Gestures
   m_TagString: Untagged
@@ -1679,18 +1831,6 @@ Transform:
   - {fileID: 1458442823}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1878060605
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1878060603}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d916e439d0c1540599f9a046f22d7f5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GestureDebug
 --- !u!114 &1878060606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1703,7 +1843,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 543e7b3aac5ac4b04b0b75f87b08f3f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  state: {fileID: 0}
+  state: {fileID: 1886528248}
+--- !u!114 &1878060607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878060603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a5707037edf346fcb3f998688201690, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GestureDebug
 --- !u!1 &1886528246
 GameObject:
   m_ObjectHideFlags: 0
@@ -1915,19 +2067,7 @@ MonoBehaviour:
   _activeState: {fileID: 1964602107}
   _whenActivated:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1878060605}
-        m_TargetAssemblyTypeName: GestureDebug, Assembly-CSharp
-        m_MethodName: TestLog
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   _whenDeactivated:
     m_PersistentCalls:
       m_Calls: []

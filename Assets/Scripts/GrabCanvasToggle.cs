@@ -10,6 +10,8 @@ public class GrabCanvasToggle : MonoBehaviour
     [SerializeField] private GameObject profileImage;
 
     [SerializeField] private EmailSphere emailSphere;
+  [SerializeField] private GameObject replySphere;
+  [SerializeField] private GameObject deleteSphere;
 
   private AudioSource audioSource;
 
@@ -18,7 +20,7 @@ public class GrabCanvasToggle : MonoBehaviour
         if (aiCanvas != null)
             aiCanvas.SetActive(false);
 
-        if (fullCanvas != null)
+        if (fullCanvas != null) 
             fullCanvas.SetActive(false);
 
         // Get or add AudioSource component
@@ -57,6 +59,9 @@ public class GrabCanvasToggle : MonoBehaviour
             if (fullCanvas != null && fullCanvas.activeSelf)
                 fullCanvas.SetActive(false);
         }
+
+        if (replySphere != null) replySphere.SetActive(shouldShow);
+        if (deleteSphere != null) deleteSphere.SetActive(shouldShow);
     }
 
     private void OnPointerEvent(PointerEvent evt)
