@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class EmailState : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public GameObject activeSphere;
+
     void Start()
     {
         
@@ -11,6 +12,6 @@ public class EmailState : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+      
     }
 }

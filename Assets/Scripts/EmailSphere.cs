@@ -17,6 +17,7 @@ public class EmailSphere : MonoBehaviour
   [SerializeField] private float snapAngleThreshold = 45.0f;
   [SerializeField] private Vector3 snapOffset = new Vector3(0, -1.8f, 1.8f);
   [SerializeField] private float snapDuration = 0.8f;
+  [SerializeField] private EmailState state;
 
   public bool focused = false;
   [SerializeField] private Rigidbody rb;
@@ -73,6 +74,10 @@ public class EmailSphere : MonoBehaviour
   private void CheckForSnap()
   {
     if (rb == null || Camera.main == null) return;
+    if (state.activeSphere != null) return;
+
+    // Set as active sphere
+    state.activeSphere = this.gameObject;
 
     // Speed check
     if (rb.linearVelocity.magnitude < snapVelocityThreshold) return;
