@@ -22,61 +22,68 @@ public class EmailManager : MonoBehaviour
     {
         if (emailSpherePrefab == null) return;
 
-        // Original version with ElevenLabs audio generation (commented out to save API costs):
-        // EmailAITool.AnalyzeEmail(email.from, email.subject, email.snippet, (analysis) =>
-        // {
-        //     string summary = analysis?.summary ?? email.snippet;
-        //
-        //     Audio.GenerateAudio(summary, (audioClip) =>
-        //     {
-        //         Vector3 spawnPos = GeneratePosition();
-        //         GameObject newSphere = Instantiate(emailSpherePrefab, spawnPos, Quaternion.identity);
-        //
-        //         if (Camera.main != null)
-        //         {
-        //             newSphere.transform.LookAt(Camera.main.transform);
-        //             newSphere.transform.Rotate(0, 180, 0);
-        //         }
-        //
-        //         EmailSphere sphere = newSphere.GetComponent<EmailSphere>();
-        //         if (sphere != null)
-        //         {
-        //             sphere.Initialize(email.from, email.subject, summary, audioClip);
-        //         }
-        //     });
-        // });
-
-        // Current version: AI summarization enabled, audio generation disabled
+        // Version with ElevenLabs audio generation
         EmailAITool.AnalyzeEmail(email.from, email.subject, email.snippet, (analysis) =>
         {
             string summary = analysis?.summary ?? email.snippet;
             EmailAITool.EmailCategory category = analysis?.category ?? EmailAITool.EmailCategory.Other;
             int priority = analysis?.priority ?? 1;
-
-            Vector3 spawnPos = GeneratePosition(category);
-            GameObject newSphere = Instantiate(emailSpherePrefab, spawnPos, Quaternion.identity);
-
-            // Play spawn sound effect
-            if (spawnSoundClip != null)
+        
+            Audio.GenerateAudio(summary, (audioClip) =>
             {
-                AudioSource.PlayClipAtPoint(spawnSoundClip, spawnPos);
-            }
+                Vector3 spawnPos = GeneratePosition(category);
+                GameObject newSphere = Instantiate(emailSpherePrefab, spawnPos, Quaternion.identity);
+        
+                if (spawnSoundClip != null)
+                {
+                    AudioSource.PlayClipAtPoint(spawnSoundClip, spawnPos);
+                }
 
-            if (Camera.main != null)
-            {
-                newSphere.transform.LookAt(Camera.main.transform);
-            }
+                if (Camera.main != null)
+                {
+                    newSphere.transform.LookAt(Camera.main.transform);
+                }
 
-            string senderEmail = ExtractEmailAddress(email.from);
-            string senderName = ExtractSenderName(email.from);
-
-            EmailContent content = newSphere.GetComponent<EmailContent>();
-            if (content != null)
-            {
-                content.Initialize(senderName, senderEmail, email.subject, email.snippet, summary, null, category, priority);
-            }
-            EmailSphere sphere = newSphere.GetComponent<EmailSphere>();
+                string senderEmail = ExtractEmailAddress(email.from);
+                string senderName = ExtractSenderName(email.from);
+        
+                EmailContent content = newSphere.GetComponent<EmailContent>();
+                if (content != null)
+                {
+                    content.Initialize(senderName, senderEmail, email.subject, email.snippet, summary, audioClip, category, priority);
+                }
+            });
         });
+
+        // Version without audio (commented out):
+        // EmailAITool.AnalyzeEmail(email.from, email.subject, email.snippet, (analysis) =>
+        // {
+        //     string summary = analysis?.summary ?? email.snippet;
+        //     EmailAITool.EmailCategory category = analysis?.category ?? EmailAITool.EmailCategory.Other;
+        //     int priority = analysis?.priority ?? 1;
+
+        //     Vector3 spawnPos = GeneratePosition(category);
+        //     GameObject newSphere = Instantiate(emailSpherePrefab, spawnPos, Quaternion.identity);
+
+        //     if (spawnSoundClip != null)
+        //     {
+        //         AudioSource.PlayClipAtPoint(spawnSoundClip, spawnPos);
+        //     }
+
+        //     if (Camera.main != null)
+        //     {
+        //         newSphere.transform.LookAt(Camera.main.transform);
+        //     }
+
+        //     string senderEmail = ExtractEmailAddress(email.from);
+        //     string senderName = ExtractSenderName(email.from);
+
+        //     EmailContent content = newSphere.GetComponent<EmailContent>();
+        //     if (content != null)
+        //     {
+        //         content.Initialize(senderName, senderEmail, email.subject, email.snippet, summary, null, category, priority);
+        //     }
+        // });
     }
 
     private string ExtractEmailAddress(string fromField)

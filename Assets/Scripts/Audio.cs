@@ -16,7 +16,7 @@ public class Audio : MonoBehaviour
 
     void Awake()
     {
-        ELEVEN_LABS_API_KEY = "sk_5d078beac6a797da55de263e15979349e9b557f900a4835f";
+        ELEVEN_LABS_API_KEY = "sk_59e17c5ce27e383d0803ee1dbc6cbd596631efae4fd1307a";
         ELEVEN_LABS_VOICE_ID = "Gfpl8Yo74Is0W6cPUWWT";
         Debug.Log($"API Key: {ELEVEN_LABS_API_KEY}");
         Debug.Log($"Voice ID: {ELEVEN_LABS_VOICE_ID}");
