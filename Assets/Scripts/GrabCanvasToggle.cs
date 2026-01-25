@@ -74,7 +74,11 @@ public class GrabCanvasToggle : MonoBehaviour
                 // Play the cached AI summary audio
                 if (emailSphere != null)
                 {
-                    emailSphere.PlayCachedAudio();
+                    EmailAudio emailAudio = emailSphere.GetComponent<EmailAudio>();
+                    if (emailAudio != null)
+                    {
+                        emailAudio.PlayCachedAudio();
+                    }
                 }
                 break;
 

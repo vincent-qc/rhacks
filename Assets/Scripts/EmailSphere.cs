@@ -22,8 +22,6 @@ public class EmailSphere : MonoBehaviour
   public bool focused = false;
   [SerializeField] private Rigidbody rb;
 
-  private AudioClip cachedAudioClip;
-
   void Start() {
     GameObject stateManager = GameObject.Find("StateManager");
     this.state = stateManager.GetComponent<StateManager>();
@@ -46,31 +44,12 @@ public class EmailSphere : MonoBehaviour
     this.sender = sender;
     this.subject = subject;
     this.body = body;
-    this.cachedAudioClip = audioClip;
+    
+    EmailAudio emailAudio = GetComponent<EmailAudio>();
+    if (emailAudio == null) emailAudio = gameObject.AddComponent<EmailAudio>();
+    emailAudio.SetAudioClip(audioClip);
 
     UpdateText();
-  }
-
-  public void SetAudioClip(AudioClip clip)
-  {
-    cachedAudioClip = clip;
-  }
-
-  public void PlayCachedAudio()
-  {
-    if (cachedAudioClip != null)
-    {
-      Audio.PlayClipIfNotPlaying(cachedAudioClip);
-    }
-    else
-    {
-      UnityEngine.Debug.LogWarning("No cached audio clip available for this email sphere.");
-    }
-  }
-
-  public bool HasCachedAudio()
-  {
-    return cachedAudioClip != null;
   }
   private void Update()
   {
