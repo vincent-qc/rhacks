@@ -108,7 +108,7 @@ Material:
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _InnerGlowIntensity: 0.6
-    - _InnerGlowPower: 4
+    - _InnerGlowPower: 7.55
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Opacity: 0.5
@@ -131,12 +131,12 @@ Material:
     - _XRMotionVectorsPass: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.51018256, g: 0.87547165, b: 0.2015237, a: 1}
+    - _BaseColor: {r: 0.12348701, g: 0.7075472, b: 0.5050612, a: 1}
     - _Color: {r: 0.7169812, g: 0.19953719, b: 0.19953719, a: 1}
     - _CoreColor: {r: 0, g: 0.09999997, b: 0.29999998, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _InnerColor: {r: 0, g: 0.5, b: 1, a: 1}
-    - _RimColor: {r: 0.77949446, g: 0.8981132, b: 0.8011811, a: 1}
+    - _InnerColor: {r: 0, g: 0.12864493, b: 0.14150941, a: 1}
+    - _RimColor: {r: 0.33579564, g: 0.9245283, b: 0.8306724, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

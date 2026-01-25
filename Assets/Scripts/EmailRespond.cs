@@ -5,13 +5,12 @@ using System.Collections;
 
 /// <summary>
 /// Email response workflow controller.
-/// Manages UI states: Selecting -> Detecting -> Generating -> Displaying
+/// Manages UI states: Detecting -> Generating -> Displaying
 /// Press Y to start recording email response, U to stop and generate.
 /// </summary>
 public class EmailRespond : MonoBehaviour
 {
     [Header("UI States")]
-    [SerializeField] private GameObject SelectingUI;
     [SerializeField] private GameObject DetectingUI;
     [SerializeField] private GameObject GeneratingUI;
     [SerializeField] private GameObject DisplayingUI;
@@ -20,7 +19,6 @@ public class EmailRespond : MonoBehaviour
     [SerializeField] private TextMeshProUGUI transcriptionText;
     [SerializeField] private TextMeshProUGUI generatedEmailText;
 
-    private TextMeshProUGUI emailRecipient;
     private TextMeshProUGUI emailContent;
 
     private SpeechRecognition speechRecognition;
@@ -51,16 +49,14 @@ public class EmailRespond : MonoBehaviour
         if (speechRecognition.OnError != null)
             speechRecognition.OnError.AddListener(OnError);
 
-        SelectingUI.SetActive(false);
-        DetectingUI.SetActive(false);
-        GeneratingUI.SetActive(false);
-        DisplayingUI.SetActive(false);
+        // Initialize all UIs as inactive
+        if (DetectingUI != null) DetectingUI.SetActive(false);
+        if (GeneratingUI != null) GeneratingUI.SetActive(false);
+        if (DisplayingUI != null) DisplayingUI.SetActive(false);
 
-        emailContent = GeneratingUI.transform.Find("content").GetComponent<TextMeshProUGUI>();
-        emailRecipient = GeneratingUI.transform.Find("name").GetComponent<TextMeshProUGUI>();
+        emailContent = DisplayingUI.transform.Find("content").GetComponent<TextMeshProUGUI>();
 
         isInitialized = true;
-        ShowSelectingUI();
         Debug.Log("[EmailRespond] Ready. Press Y to start recording, U to stop.");
     }
 
@@ -118,20 +114,22 @@ public class EmailRespond : MonoBehaviour
         }
         else
         {
-            ShowSelectingUI();
+            HideAllUI();
             Debug.LogError("[EmailRespond] Failed to generate email");
         }
     }
 
     private void OnError(string error)
     {
-        ShowSelectingUI();
+        HideAllUI();
         Debug.LogError($"[EmailRespond] Error: {error}");
     }
 
-    private void ShowSelectingUI()
+    private void HideAllUI()
     {
-        SetActiveUI(SelectingUI);
+        if (DetectingUI != null) DetectingUI.SetActive(false);
+        if (GeneratingUI != null) GeneratingUI.SetActive(false);
+        if (DisplayingUI != null) DisplayingUI.SetActive(false);
     }
 
     private void ShowDetectingUI()
@@ -151,7 +149,6 @@ public class EmailRespond : MonoBehaviour
 
     private void SetActiveUI(GameObject activeUI)
     {
-        if (SelectingUI != null) SelectingUI.SetActive(SelectingUI == activeUI);
         if (DetectingUI != null) DetectingUI.SetActive(DetectingUI == activeUI);
         if (GeneratingUI != null) GeneratingUI.SetActive(GeneratingUI == activeUI);
         if (DisplayingUI != null) DisplayingUI.SetActive(DisplayingUI == activeUI);
@@ -170,6 +167,11 @@ public class EmailRespond : MonoBehaviour
         if (generatedEmailText != null)
         {
             generatedEmailText.text = email;
+        }
+        
+        if (emailContent != null)
+        {
+            emailContent.text = email;
         }
     }
 

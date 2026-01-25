@@ -7,6 +7,7 @@ public class GrabCanvasToggle : MonoBehaviour
     [SerializeField] private GameObject aiCanvas;
     [SerializeField] private GameObject fullCanvas;
     [SerializeField] private AudioClip grabSoundEffect;
+    [SerializeField] private GameObject profileImage;
 
     [SerializeField] private EmailSphere emailSphere;
 
