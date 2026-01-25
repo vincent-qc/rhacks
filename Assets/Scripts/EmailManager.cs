@@ -44,7 +44,6 @@ public class EmailManager : MonoBehaviour
         //     });
         // });
 
-
         // temp code to avoid elevenlab use
         Vector3 spawnPos = GeneratePosition();
         GameObject newSphere = Instantiate(emailSpherePrefab, spawnPos, Quaternion.identity);

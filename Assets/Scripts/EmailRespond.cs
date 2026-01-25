@@ -20,6 +20,9 @@ public class EmailRespond : MonoBehaviour
     [SerializeField] private TextMeshProUGUI transcriptionText;
     [SerializeField] private TextMeshProUGUI generatedEmailText;
 
+    private TextMeshProUGUI emailRecipient;
+    private TextMeshProUGUI emailContent;
+
     private SpeechRecognition speechRecognition;
     private bool isInitialized = false;
     private string currentTranscription = "";
@@ -47,6 +50,14 @@ public class EmailRespond : MonoBehaviour
             speechRecognition.OnTranscriptionComplete.AddListener(OnTranscriptionComplete);
         if (speechRecognition.OnError != null)
             speechRecognition.OnError.AddListener(OnError);
+
+        SelectingUI.SetActive(false);
+        DetectingUI.SetActive(false);
+        GeneratingUI.SetActive(false);
+        DisplayingUI.SetActive(false);
+
+        emailContent = GeneratingUI.transform.Find("content").GetComponent<TextMeshProUGUI>();
+        emailRecipient = GeneratingUI.transform.Find("name").GetComponent<TextMeshProUGUI>();
 
         isInitialized = true;
         ShowSelectingUI();
@@ -91,7 +102,7 @@ public class EmailRespond : MonoBehaviour
     {
         currentTranscription = text;
         UpdateTranscription(text);
-        
+
         // Generate email will be called automatically by SpeechRecognition
         // But we'll also listen for the result here
         GenerateEmail.Generate(text, OnEmailGenerated);
