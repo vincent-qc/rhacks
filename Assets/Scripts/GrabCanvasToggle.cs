@@ -8,7 +8,9 @@ public class GrabCanvasToggle : MonoBehaviour
     [SerializeField] private GameObject fullCanvas;
     [SerializeField] private AudioClip grabSoundEffect;
 
-    private AudioSource audioSource;
+    [SerializeField] private EmailSphere emailSphere;
+
+  private AudioSource audioSource;
 
     void Start()
     {
@@ -38,13 +40,30 @@ public class GrabCanvasToggle : MonoBehaviour
             grabbable.WhenPointerEventRaised -= OnPointerEvent;
     }
 
+    private bool isGrabbed = false;
+
+    private void Update()
+    {
+        bool shouldShow = isGrabbed || (emailSphere != null && emailSphere.focused);
+
+        if (aiCanvas != null && aiCanvas.activeSelf != shouldShow)
+        {
+            aiCanvas.SetActive(shouldShow);
+        }
+
+        if (!shouldShow)
+        {
+            if (fullCanvas != null && fullCanvas.activeSelf)
+                fullCanvas.SetActive(false);
+        }
+    }
+
     private void OnPointerEvent(PointerEvent evt)
     {
         switch (evt.Type)
         {
             case PointerEventType.Select:
-                if (aiCanvas != null)
-                    aiCanvas.SetActive(true);
+                isGrabbed = true;
 
                 // Play grab sound effect
                 if (grabSoundEffect != null && audioSource != null)
@@ -53,7 +72,6 @@ public class GrabCanvasToggle : MonoBehaviour
                 }
 
                 // Play the cached AI summary audio
-                EmailSphere emailSphere = GetComponent<EmailSphere>();
                 if (emailSphere != null)
                 {
                     emailSphere.PlayCachedAudio();
@@ -62,10 +80,7 @@ public class GrabCanvasToggle : MonoBehaviour
 
             case PointerEventType.Unselect:
             case PointerEventType.Cancel:
-                if (aiCanvas != null)
-                    aiCanvas.SetActive(false);
-                if (fullCanvas != null)
-                    fullCanvas.SetActive(false);
+                isGrabbed = false;
                 break;
         }
     }

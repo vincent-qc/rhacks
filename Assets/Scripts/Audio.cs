@@ -180,6 +180,11 @@ public class Audio : MonoBehaviour
             }
 
             AudioClip clip = DownloadHandlerAudioClip.GetContent(www);
+            
+            if (clip != null)
+            {
+                clip.LoadAudioData();
+            }
 
             if (clip == null)
             {

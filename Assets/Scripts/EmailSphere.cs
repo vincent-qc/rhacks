@@ -15,7 +15,7 @@ public class EmailSphere : MonoBehaviour
   [Header("Snapping Configuration")]
   [SerializeField] private float snapVelocityThreshold = 0.2f;
   [SerializeField] private float snapAngleThreshold = 45.0f;
-  [SerializeField] private Vector3 snapOffset = new Vector3(0, -1.8f, 1.8f);
+  [SerializeField] private Vector3 snapOffset = new Vector3(0, -0.25f, 0.5f);
   [SerializeField] private float snapDuration = 0.8f;
   [SerializeField] private StateManager state;
 
@@ -74,7 +74,9 @@ public class EmailSphere : MonoBehaviour
   }
   private void Update()
   {
-    this.gameObject.transform.LookAt(Camera.main.transform);
+    Vector3 lookTarget = Camera.main.transform.position;
+    lookTarget.y -= 0.25f; // Look slightly below eye level
+    this.gameObject.transform.LookAt(lookTarget);
     if (focused) return;
     CheckForSnap();
   }
@@ -82,10 +84,13 @@ public class EmailSphere : MonoBehaviour
   private void CheckForSnap()
   {
     if (rb == null || Camera.main == null) return;
-    if (state.activeSphere != null) return;
-
-    // Set as active sphere
-    state.activeSphere = this.gameObject;
+    
+    // Check if there is already a focused sphere
+    if (state.focusedSphere != null) 
+    {
+        // If it's this sphere, we don't need to do anything
+        if (state.focusedSphere == this.gameObject) return;
+    }
 
     // Speed check
     if (rb.linearVelocity.magnitude < snapVelocityThreshold) return;
@@ -102,7 +107,19 @@ public class EmailSphere : MonoBehaviour
 
   private System.Collections.IEnumerator SnapToReader()
   {
+    // If another sphere is currently focused, eject it
+    if (state.focusedSphere != null && state.focusedSphere != this.gameObject)
+    {
+      EmailSphere current = state.focusedSphere.GetComponent<EmailSphere>();
+      if (current != null)
+      {
+        current.Eject();
+      }
+    }
+
+    // Set as focused sphere
     focused = true;
+    state.focusedSphere = this.gameObject;
 
     if (rb != null)
     {
@@ -111,23 +128,49 @@ public class EmailSphere : MonoBehaviour
       rb.angularVelocity = Vector3.zero;
     }
 
-    Transform camTransform = Camera.main.transform;
-    transform.SetParent(camTransform);
-
-    Vector3 startPos = transform.localPosition;
-    Vector3 targetPos = snapOffset;
-
+    // Capture starting world position
+    Vector3 startPos = transform.position;
+    
+    // We will update targetPos dynamically in the loop to chase the camera
     float elapsed = 0f;
 
     while (elapsed < snapDuration)
     {
       elapsed += Time.deltaTime;
       float t = elapsed / snapDuration;
-
       float easeT = 1f - Mathf.Pow(1f - t, 3f);
 
-      transform.localPosition = Vector3.Lerp(startPos, targetPos, easeT);
+      // Determine where the "slot" is in world space right now
+      Vector3 currentTargetPos = Camera.main.transform.TransformPoint(snapOffset);
+
+      transform.position = Vector3.Lerp(startPos, currentTargetPos, easeT);
       yield return null;
+    }
+    
+    // Ensure we end exactly at the final target position relative to the camera at that moment
+    transform.position = Camera.main.transform.TransformPoint(snapOffset);
+  }
+
+  public void Eject()
+  {
+    focused = false;
+    
+    // Stop any ongoing snap coroutines on this object
+    StopAllCoroutines(); 
+
+    if (rb != null)
+    {
+      rb.isKinematic = false;
+      
+      // Calculate ejection direction: Forward from camera + slightly up
+      Vector3 ejectDirection = Camera.main.transform.forward + (Camera.main.transform.up * 0.5f);
+      ejectDirection.Normalize();
+      
+      // Apply force
+      rb.AddForce(ejectDirection * 2.0f, ForceMode.Impulse);
+      
+      // Add some random torque for effect
+      rb.AddTorque(UnityEngine.Random.insideUnitSphere * 1.0f, ForceMode.Impulse);
     }
   }
 
