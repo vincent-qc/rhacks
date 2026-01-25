@@ -47,21 +47,32 @@ public class GrabCanvasToggle : MonoBehaviour
 
     private void Update()
     {
-        bool shouldShow = isGrabbed || (emailSphere != null && emailSphere.focused);
+        bool isFocused = emailSphere != null && emailSphere.focused;
 
-        if (aiCanvas != null && aiCanvas.activeSelf != shouldShow)
+        if (isFocused)
         {
-            aiCanvas.SetActive(shouldShow);
+            // FOCUSED STATE: Show Full Canvas & Action Spheres, Hide AI Canvas
+            if (aiCanvas != null) aiCanvas.SetActive(false);
+            if (fullCanvas != null) fullCanvas.SetActive(true);
+            if (replySphere != null) replySphere.SetActive(true);
+            if (deleteSphere != null) deleteSphere.SetActive(true);
         }
-
-        if (!shouldShow)
+        else if (isGrabbed)
         {
-            if (fullCanvas != null && fullCanvas.activeSelf)
-                fullCanvas.SetActive(false);
+            // GRABBED BUT NOT FOCUSED: Show AI Canvas, Hide Full Canvas & Action Spheres
+            if (aiCanvas != null) aiCanvas.SetActive(true);
+            if (fullCanvas != null) fullCanvas.SetActive(false);
+            if (replySphere != null) replySphere.SetActive(false);
+            if (deleteSphere != null) deleteSphere.SetActive(false);
         }
-
-        if (replySphere != null) replySphere.SetActive(shouldShow);
-        if (deleteSphere != null) deleteSphere.SetActive(shouldShow);
+        else
+        {
+            // IDLE: Hide All
+            if (aiCanvas != null) aiCanvas.SetActive(false);
+            if (fullCanvas != null) fullCanvas.SetActive(false);
+            if (replySphere != null) replySphere.SetActive(false);
+            if (deleteSphere != null) deleteSphere.SetActive(false);
+        }
     }
 
     private void OnPointerEvent(PointerEvent evt)
