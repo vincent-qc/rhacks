@@ -7,7 +7,7 @@ MonoImporter:
   - grabbable: {instanceID: 0}
   - aiCanvas: {instanceID: 0}
   - fullCanvas: {instanceID: 0}
-  - grabSoundEffect: {fileID: 8300000, guid: ede4df19821c54843a71d882730f591d, type: 3}
+  - grabSoundEffect: {fileID: 8300000, guid: cf0975d7fc43e44f58341cc79182d6d4, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

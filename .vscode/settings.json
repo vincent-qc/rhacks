@@ -67,5 +67,5 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "rhacks.slnx"
+    "dotnet.defaultSolution": "rhack.slnx"
 }

@@ -31,9 +31,9 @@ static const int32_t s_InvokerIndices[5] =
 {
 	23408,
 	23162,
-	37818,
-	37985,
-	36445,
+	37821,
+	37988,
+	36448,
 };
 IL2CPP_EXTERN_C const Il2CppCodeGenModule g_UnityEngine_UnityConsentModule_CodeGenModule;
 const Il2CppCodeGenModule g_UnityEngine_UnityConsentModule_CodeGenModule = 

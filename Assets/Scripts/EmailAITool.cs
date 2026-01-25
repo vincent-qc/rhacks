@@ -254,7 +254,7 @@ Email:
             generationConfig = new GeminiGenerationConfig
             {
                 temperature = 0.3f,
-                maxOutputTokens = 500
+                maxOutputTokens = 1000
             }
         };
 
