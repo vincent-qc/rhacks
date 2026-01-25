@@ -5,7 +5,7 @@ using System.Linq;
 
 public class GestureDebug : MonoBehaviour
 {
-    [SerializeField] private float resetLerpDuration = 0.5f;
+    [SerializeField] private float resetLerpDuration = 0.25f;
 
     void Start()
     {
@@ -108,8 +108,10 @@ public class GestureDebug : MonoBehaviour
             if (target == null) yield break;
             
             elapsedTime += Time.deltaTime;
-            float t = Mathf.SmoothStep(0, 1, elapsedTime / resetLerpDuration);
-            target.position = Vector3.Lerp(startPosition, targetPosition, t);
+            float t = elapsedTime / resetLerpDuration;
+            // Ease-out cubic: starts fast, slows down at end
+            float easeOut = 1f - Mathf.Pow(1f - t, 3f);
+            target.position = Vector3.Lerp(startPosition, targetPosition, easeOut);
             
             yield return null;
         }
