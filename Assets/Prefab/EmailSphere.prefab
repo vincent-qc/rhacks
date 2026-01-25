@@ -2078,8 +2078,15 @@ MonoBehaviour:
   subject: 
   body: 
   sender: 
+  category: 0
+  priority: 0
   fullContent: {fileID: 3835343236037674973}
   aiContent: {fileID: 4886361992205504559}
+  workMaterial: {fileID: 2100000, guid: 054c159be4e6f2840a389b638e926f01, type: 2}
+  personalMaterial: {fileID: 2100000, guid: eaee106ec81ae6649afa1519b7e21382, type: 2}
+  promotionsMaterial: {fileID: 2100000, guid: d85704e682c25d54f8a841a9c584fc74, type: 2}
+  socialMaterial: {fileID: 2100000, guid: 739b66da8e7e8c64682c6a0a60cb5b7a, type: 2}
+  otherMaterial: {fileID: 2100000, guid: 3633ade43a674cb43942817e7dd3b192, type: 2}
   snapVelocityThreshold: 0.4
   snapAngleThreshold: 45
   snapOffset: {x: 0, y: -0.25, z: 0.5}

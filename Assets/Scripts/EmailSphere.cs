@@ -13,6 +13,13 @@ public class EmailSphere : MonoBehaviour
   [SerializeField] private TextMeshProUGUI fullContent;
   [SerializeField] private TextMeshProUGUI aiContent;
 
+  [Header("Category Materials")]
+  [SerializeField] private Material workMaterial;
+  [SerializeField] private Material personalMaterial;
+  [SerializeField] private Material promotionsMaterial;
+  [SerializeField] private Material socialMaterial;
+  [SerializeField] private Material otherMaterial;
+
 
   [Header("Snapping Configuration")]
   [SerializeField] private float snapVelocityThreshold = 0.2f;
@@ -30,6 +37,7 @@ public class EmailSphere : MonoBehaviour
     if (this.state == null) {
       UnityEngine.Debug.LogError("StateManager not found");
     }
+    ApplyCategoryVisuals();
   }
 
   public void Initialize(string sender, string subject, string body)
@@ -72,30 +80,40 @@ public class EmailSphere : MonoBehaviour
 
   private void ApplyCategoryVisuals()
   {
-    // TODO: Implement visual changes based on category and priority
-    // Example: Change sphere color based on category
-    // Renderer renderer = GetComponent<Renderer>();
-    // if (renderer != null)
-    // {
-    //     switch (category)
-    //     {
-    //         case EmailAITool.EmailCategory.Work:
-    //             renderer.material.color = Color.blue;
-    //             break;
-    //         case EmailAITool.EmailCategory.Personal:
-    //             renderer.material.color = Color.green;
-    //             break;
-    //         case EmailAITool.EmailCategory.Promotions:
-    //             renderer.material.color = Color.yellow;
-    //             break;
-    //         case EmailAITool.EmailCategory.Social:
-    //             renderer.material.color = Color.magenta;
-    //             break;
-    //         default:
-    //             renderer.material.color = Color.white;
-    //             break;
-    //     }
-    // }
+    MeshRenderer sphereRenderer = GetComponent<MeshRenderer>();
+    if (sphereRenderer == null)
+    {
+      UnityEngine.Debug.LogWarning("EmailSphere: No MeshRenderer found on this object!");
+      return;
+    }
+
+    Material materialToApply = GetMaterialForCategory(category);
+    if (materialToApply != null)
+    {
+      sphereRenderer.material = materialToApply;
+    }
+    else
+    {
+      UnityEngine.Debug.LogWarning($"EmailSphere: No material assigned for category {category}");
+    }
+  }
+
+  private Material GetMaterialForCategory(EmailAITool.EmailCategory cat)
+  {
+    switch (cat)
+    {
+      case EmailAITool.EmailCategory.Work:
+        return workMaterial;
+      case EmailAITool.EmailCategory.Personal:
+        return personalMaterial;
+      case EmailAITool.EmailCategory.Promotions:
+        return promotionsMaterial;
+      case EmailAITool.EmailCategory.Social:
+        return socialMaterial;
+      case EmailAITool.EmailCategory.Other:
+      default:
+        return otherMaterial;
+    }
   }
   private void Update()
   {
