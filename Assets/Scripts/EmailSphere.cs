@@ -7,6 +7,8 @@ public class EmailSphere : MonoBehaviour
   public string subject;
   public string body;
   public string sender;
+  public EmailAITool.EmailCategory category;
+  public int priority;
 
   [SerializeField] private TextMeshProUGUI fullContent;
   [SerializeField] private TextMeshProUGUI aiContent;
@@ -44,12 +46,56 @@ public class EmailSphere : MonoBehaviour
     this.sender = sender;
     this.subject = subject;
     this.body = body;
-    
+
     EmailAudio emailAudio = GetComponent<EmailAudio>();
     if (emailAudio == null) emailAudio = gameObject.AddComponent<EmailAudio>();
     emailAudio.SetAudioClip(audioClip);
 
     UpdateText();
+  }
+
+  public void Initialize(string sender, string subject, string body, AudioClip audioClip, EmailAITool.EmailCategory category, int priority)
+  {
+    this.sender = sender;
+    this.subject = subject;
+    this.body = body;
+    this.category = category;
+    this.priority = priority;
+
+    EmailAudio emailAudio = GetComponent<EmailAudio>();
+    if (emailAudio == null) emailAudio = gameObject.AddComponent<EmailAudio>();
+    emailAudio.SetAudioClip(audioClip);
+
+    UpdateText();
+    ApplyCategoryVisuals();
+  }
+
+  private void ApplyCategoryVisuals()
+  {
+    // TODO: Implement visual changes based on category and priority
+    // Example: Change sphere color based on category
+    // Renderer renderer = GetComponent<Renderer>();
+    // if (renderer != null)
+    // {
+    //     switch (category)
+    //     {
+    //         case EmailAITool.EmailCategory.Work:
+    //             renderer.material.color = Color.blue;
+    //             break;
+    //         case EmailAITool.EmailCategory.Personal:
+    //             renderer.material.color = Color.green;
+    //             break;
+    //         case EmailAITool.EmailCategory.Promotions:
+    //             renderer.material.color = Color.yellow;
+    //             break;
+    //         case EmailAITool.EmailCategory.Social:
+    //             renderer.material.color = Color.magenta;
+    //             break;
+    //         default:
+    //             renderer.material.color = Color.white;
+    //             break;
+    //     }
+    // }
   }
   private void Update()
   {
@@ -63,9 +109,9 @@ public class EmailSphere : MonoBehaviour
   private void CheckForSnap()
   {
     if (rb == null || Camera.main == null) return;
-    
+
     // Check if there is already a focused sphere
-    if (state.focusedSphere != null) 
+    if (state.focusedSphere != null)
     {
         // If it's this sphere, we don't need to do anything
         if (state.focusedSphere == this.gameObject) return;
@@ -109,7 +155,7 @@ public class EmailSphere : MonoBehaviour
 
     // Capture starting world position
     Vector3 startPos = transform.position;
-    
+
     // We will update targetPos dynamically in the loop to chase the camera
     float elapsed = 0f;
 
@@ -125,7 +171,7 @@ public class EmailSphere : MonoBehaviour
       transform.position = Vector3.Lerp(startPos, currentTargetPos, easeT);
       yield return null;
     }
-    
+
     // Ensure we end exactly at the final target position relative to the camera at that moment
     transform.position = Camera.main.transform.TransformPoint(snapOffset);
   }
@@ -133,21 +179,21 @@ public class EmailSphere : MonoBehaviour
   public void Eject()
   {
     focused = false;
-    
+
     // Stop any ongoing snap coroutines on this object
-    StopAllCoroutines(); 
+    StopAllCoroutines();
 
     if (rb != null)
     {
       rb.isKinematic = false;
-      
+
       // Calculate ejection direction: Forward from camera + slightly up
       Vector3 ejectDirection = Camera.main.transform.forward + (Camera.main.transform.up * 0.5f);
       ejectDirection.Normalize();
-      
+
       // Apply force
       rb.AddForce(ejectDirection * 2.0f, ForceMode.Impulse);
-      
+
       // Add some random torque for effect
       rb.AddTorque(UnityEngine.Random.insideUnitSphere * 1.0f, ForceMode.Impulse);
     }

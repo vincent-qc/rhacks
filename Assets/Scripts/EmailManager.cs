@@ -21,21 +21,22 @@ public class EmailManager : MonoBehaviour
     {
         if (emailSpherePrefab == null) return;
 
+        // Original version with ElevenLabs audio generation (commented out to save API costs):
         // EmailAITool.AnalyzeEmail(email.from, email.subject, email.snippet, (analysis) =>
         // {
         //     string summary = analysis?.summary ?? email.snippet;
-
+        //
         //     Audio.GenerateAudio(summary, (audioClip) =>
         //     {
         //         Vector3 spawnPos = GeneratePosition();
         //         GameObject newSphere = Instantiate(emailSpherePrefab, spawnPos, Quaternion.identity);
-
+        //
         //         if (Camera.main != null)
         //         {
         //             newSphere.transform.LookAt(Camera.main.transform);
         //             newSphere.transform.Rotate(0, 180, 0);
         //         }
-
+        //
         //         EmailSphere sphere = newSphere.GetComponent<EmailSphere>();
         //         if (sphere != null)
         //         {
@@ -44,27 +45,34 @@ public class EmailManager : MonoBehaviour
         //     });
         // });
 
-        // temp code to avoid elevenlab use
-        Vector3 spawnPos = GeneratePosition();
-        GameObject newSphere = Instantiate(emailSpherePrefab, spawnPos, Quaternion.identity);
-
-        if (Camera.main != null)
+        // Current version: AI summarization enabled, audio generation disabled
+        EmailAITool.AnalyzeEmail(email.from, email.subject, email.snippet, (analysis) =>
         {
-            newSphere.transform.LookAt(Camera.main.transform);
-            newSphere.transform.Rotate(0, 180, 0);
-        }
+            string summary = analysis?.summary ?? email.snippet;
+            EmailAITool.EmailCategory category = analysis?.category ?? EmailAITool.EmailCategory.Other;
+            int priority = analysis?.priority ?? 1;
 
-        EmailSphere sphere = newSphere.GetComponent<EmailSphere>();
-        if (sphere != null)
-        {
-            sphere.Initialize(email.from, email.subject, email.snippet, null);
-        }
+            Vector3 spawnPos = GeneratePosition();
+            GameObject newSphere = Instantiate(emailSpherePrefab, spawnPos, Quaternion.identity);
+
+            if (Camera.main != null)
+            {
+                newSphere.transform.LookAt(Camera.main.transform);
+                newSphere.transform.Rotate(0, 180, 0);
+            }
+
+            EmailSphere sphere = newSphere.GetComponent<EmailSphere>();
+            if (sphere != null)
+            {
+                sphere.Initialize(email.from, email.subject, summary, null, category, priority);
+            }
+        });
     }
 
     private Vector3 GeneratePosition()
     {
         if (Camera.main == null) return transform.position;
-      
+
         Transform camTransform = Camera.main.transform;
 
         // Random offsets to keep it in FOV but not dead center
