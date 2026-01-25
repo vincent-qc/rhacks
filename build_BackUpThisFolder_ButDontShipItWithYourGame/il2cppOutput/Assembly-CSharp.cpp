@@ -5320,7 +5320,6 @@ inline Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* Component_GetCompone
 {
 	return ((  Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* (*) (Component_t39FBE53E5EFCF4409111FB22C15FF73717632EC3*, const RuntimeMethod*))Component_GetComponent_TisRuntimeObject_m7181F81CAEC2CF53F5D2BC79B7425C16E1F80D33_gshared)(__this, method);
 }
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR float Mathf_SmoothStep_mEFDC738EB0AA162D71013BDBBDD157B080A8E524_inline (float ___0_from, float ___1_to, float ___2_t, const RuntimeMethod* method) ;
 inline EmailSphere_t13E3F2253D30B8E1B56D1C74D8758AF65FFAE612* Component_GetComponent_TisEmailSphere_t13E3F2253D30B8E1B56D1C74D8758AF65FFAE612_m67F418B1706D5F1C96F76FDB3B7B1DE2F696FD79 (Component_t39FBE53E5EFCF4409111FB22C15FF73717632EC3* __this, const RuntimeMethod* method)
 {
 	return ((  EmailSphere_t13E3F2253D30B8E1B56D1C74D8758AF65FFAE612* (*) (Component_t39FBE53E5EFCF4409111FB22C15FF73717632EC3*, const RuntimeMethod*))Component_GetComponent_TisRuntimeObject_m7181F81CAEC2CF53F5D2BC79B7425C16E1F80D33_gshared)(__this, method);
@@ -21457,7 +21456,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GestureDebug__ctor_m2F8F0E01328EF22D56CF
 {
 	{
 		//<source_info:/Users/vincentqi/Developer/GitHub/rhack/Assets/Scripts/GestureDebug.cs:8>
-		__this->___resetLerpDuration = (0.5f);
+		__this->___resetLerpDuration = (0.25f);
 		MonoBehaviour__ctor_m592DB0105CA0BC97AA1C5F4AD27B12D68A3B7C1E(__this, NULL);
 		return;
 	}
@@ -21622,7 +21621,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool U3CLerpToPositionU3Ed__6_MoveNext_m0532D
 	int32_t V_0 = 0;
 	GestureDebug_t3F16F123235FACF4975B92615FBA4EFB382172D8* V_1 = NULL;
 	float V_2 = 0.0f;
-	EmailSphere_t13E3F2253D30B8E1B56D1C74D8758AF65FFAE612* V_3 = NULL;
+	float V_3 = 0.0f;
+	EmailSphere_t13E3F2253D30B8E1B56D1C74D8758AF65FFAE612* V_4 = NULL;
 	U3CLerpToPositionU3Ed__6_t67B441EF7D52620FBB6FDF9086028D027F863653* G_B7_0 = NULL;
 	U3CLerpToPositionU3Ed__6_t67B441EF7D52620FBB6FDF9086028D027F863653* G_B6_0 = NULL;
 	int32_t G_B8_0 = 0;
@@ -21642,7 +21642,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool U3CLerpToPositionU3Ed__6_MoveNext_m0532D
 		int32_t L_3 = V_0;
 		if ((((int32_t)L_3) == ((int32_t)1)))
 		{
-			goto IL_010b;
+			goto IL_0114;
 		}
 	}
 	{
@@ -21723,7 +21723,7 @@ IL_007b:
 		L_15 = Object_op_Inequality_mD0BE578448EAA61948F25C32F8DD55AB1F778602(L_14, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
 		if (!L_15)
 		{
-			goto IL_0112;
+			goto IL_011b;
 		}
 	}
 	{
@@ -21731,7 +21731,7 @@ IL_007b:
 		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_16 = __this->___U3CrbU3E5__4;
 		NullCheck(L_16);
 		Rigidbody_set_isKinematic_m6C3FD3EA358DADA3B191F2449CF1C4F8B22695ED(L_16, (bool)1, NULL);
-		goto IL_0112;
+		goto IL_011b;
 	}
 
 IL_009f:
@@ -21763,105 +21763,108 @@ IL_00af:
 		GestureDebug_t3F16F123235FACF4975B92615FBA4EFB382172D8* L_22 = V_1;
 		NullCheck(L_22);
 		float L_23 = L_22->___resetLerpDuration;
-		float L_24;
-		L_24 = Mathf_SmoothStep_mEFDC738EB0AA162D71013BDBBDD157B080A8E524_inline((0.0f), (1.0f), ((float)(L_21/L_23)), NULL);
-		V_2 = L_24;
-		//<source_info:/Users/vincentqi/Developer/GitHub/rhack/Assets/Scripts/GestureDebug.cs:112>
-		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_25 = __this->___target;
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_26 = __this->___U3CstartPositionU3E5__2;
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_27 = __this->___targetPosition;
-		float L_28 = V_2;
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_29;
-		L_29 = Vector3_Lerp_m3A906D0530A94FAABB94F0F905E84D99BE85C3F8_inline(L_26, L_27, L_28, NULL);
-		NullCheck(L_25);
-		Transform_set_position_mA1A817124BB41B685043DED2A9BA48CDF37C4156(L_25, L_29, NULL);
+		V_2 = ((float)(L_21/L_23));
+		//<source_info:/Users/vincentqi/Developer/GitHub/rhack/Assets/Scripts/GestureDebug.cs:113>
+		float L_24 = V_2;
+		float L_25;
+		L_25 = powf(((float)il2cpp_codegen_subtract((1.0f), L_24)), (3.0f));
+		V_3 = ((float)il2cpp_codegen_subtract((1.0f), L_25));
 		//<source_info:/Users/vincentqi/Developer/GitHub/rhack/Assets/Scripts/GestureDebug.cs:114>
+		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_26 = __this->___target;
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_27 = __this->___U3CstartPositionU3E5__2;
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_28 = __this->___targetPosition;
+		float L_29 = V_3;
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_30;
+		L_30 = Vector3_Lerp_m3A906D0530A94FAABB94F0F905E84D99BE85C3F8_inline(L_27, L_28, L_29, NULL);
+		NullCheck(L_26);
+		Transform_set_position_mA1A817124BB41B685043DED2A9BA48CDF37C4156(L_26, L_30, NULL);
+		//<source_info:/Users/vincentqi/Developer/GitHub/rhack/Assets/Scripts/GestureDebug.cs:116>
 		__this->___U3CU3E2__current = NULL;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___U3CU3E2__current), (void*)NULL);
 		__this->___U3CU3E1__state = 1;
 		return (bool)1;
 	}
 
-IL_010b:
+IL_0114:
 	{
 		__this->___U3CU3E1__state = (-1);
 	}
 
-IL_0112:
+IL_011b:
 	{
 		//<source_info:/Users/vincentqi/Developer/GitHub/rhack/Assets/Scripts/GestureDebug.cs:106>
-		float L_30 = __this->___U3CelapsedTimeU3E5__3;
-		GestureDebug_t3F16F123235FACF4975B92615FBA4EFB382172D8* L_31 = V_1;
-		NullCheck(L_31);
-		float L_32 = L_31->___resetLerpDuration;
-		if ((((float)L_30) < ((float)L_32)))
+		float L_31 = __this->___U3CelapsedTimeU3E5__3;
+		GestureDebug_t3F16F123235FACF4975B92615FBA4EFB382172D8* L_32 = V_1;
+		NullCheck(L_32);
+		float L_33 = L_32->___resetLerpDuration;
+		if ((((float)L_31) < ((float)L_33)))
 		{
 			goto IL_009f;
 		}
 	}
 	{
-		//<source_info:/Users/vincentqi/Developer/GitHub/rhack/Assets/Scripts/GestureDebug.cs:118>
-		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_33 = __this->___target;
-		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
-		bool L_34;
-		L_34 = Object_op_Inequality_mD0BE578448EAA61948F25C32F8DD55AB1F778602(L_33, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
-		if (!L_34)
-		{
-			goto IL_017e;
-		}
-	}
-	{
 		//<source_info:/Users/vincentqi/Developer/GitHub/rhack/Assets/Scripts/GestureDebug.cs:120>
-		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_35 = __this->___target;
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_36 = __this->___targetPosition;
-		NullCheck(L_35);
-		Transform_set_position_mA1A817124BB41B685043DED2A9BA48CDF37C4156(L_35, L_36, NULL);
-		//<source_info:/Users/vincentqi/Developer/GitHub/rhack/Assets/Scripts/GestureDebug.cs:123>
-		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_37 = __this->___target;
-		NullCheck(L_37);
-		EmailSphere_t13E3F2253D30B8E1B56D1C74D8758AF65FFAE612* L_38;
-		L_38 = Component_GetComponent_TisEmailSphere_t13E3F2253D30B8E1B56D1C74D8758AF65FFAE612_m67F418B1706D5F1C96F76FDB3B7B1DE2F696FD79(L_37, Component_GetComponent_TisEmailSphere_t13E3F2253D30B8E1B56D1C74D8758AF65FFAE612_m67F418B1706D5F1C96F76FDB3B7B1DE2F696FD79_RuntimeMethod_var);
-		V_3 = L_38;
-		//<source_info:/Users/vincentqi/Developer/GitHub/rhack/Assets/Scripts/GestureDebug.cs:124>
-		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_39 = __this->___U3CrbU3E5__4;
+		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_34 = __this->___target;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
-		bool L_40;
-		L_40 = Object_op_Inequality_mD0BE578448EAA61948F25C32F8DD55AB1F778602(L_39, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
-		if (!L_40)
+		bool L_35;
+		L_35 = Object_op_Inequality_mD0BE578448EAA61948F25C32F8DD55AB1F778602(L_34, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
+		if (!L_35)
 		{
-			goto IL_017e;
+			goto IL_018a;
 		}
 	}
 	{
-		EmailSphere_t13E3F2253D30B8E1B56D1C74D8758AF65FFAE612* L_41 = V_3;
-		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
-		bool L_42;
-		L_42 = Object_op_Inequality_mD0BE578448EAA61948F25C32F8DD55AB1F778602(L_41, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
-		if (!L_42)
-		{
-			goto IL_017e;
-		}
-	}
-	{
-		EmailSphere_t13E3F2253D30B8E1B56D1C74D8758AF65FFAE612* L_43 = V_3;
-		NullCheck(L_43);
-		bool L_44 = L_43->___focused;
-		if (L_44)
-		{
-			goto IL_017e;
-		}
-	}
-	{
+		//<source_info:/Users/vincentqi/Developer/GitHub/rhack/Assets/Scripts/GestureDebug.cs:122>
+		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_36 = __this->___target;
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_37 = __this->___targetPosition;
+		NullCheck(L_36);
+		Transform_set_position_mA1A817124BB41B685043DED2A9BA48CDF37C4156(L_36, L_37, NULL);
+		//<source_info:/Users/vincentqi/Developer/GitHub/rhack/Assets/Scripts/GestureDebug.cs:125>
+		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_38 = __this->___target;
+		NullCheck(L_38);
+		EmailSphere_t13E3F2253D30B8E1B56D1C74D8758AF65FFAE612* L_39;
+		L_39 = Component_GetComponent_TisEmailSphere_t13E3F2253D30B8E1B56D1C74D8758AF65FFAE612_m67F418B1706D5F1C96F76FDB3B7B1DE2F696FD79(L_38, Component_GetComponent_TisEmailSphere_t13E3F2253D30B8E1B56D1C74D8758AF65FFAE612_m67F418B1706D5F1C96F76FDB3B7B1DE2F696FD79_RuntimeMethod_var);
+		V_4 = L_39;
 		//<source_info:/Users/vincentqi/Developer/GitHub/rhack/Assets/Scripts/GestureDebug.cs:126>
-		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_45 = __this->___U3CrbU3E5__4;
-		bool L_46 = __this->___U3CwasKinematicU3E5__5;
-		NullCheck(L_45);
-		Rigidbody_set_isKinematic_m6C3FD3EA358DADA3B191F2449CF1C4F8B22695ED(L_45, L_46, NULL);
+		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_40 = __this->___U3CrbU3E5__4;
+		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
+		bool L_41;
+		L_41 = Object_op_Inequality_mD0BE578448EAA61948F25C32F8DD55AB1F778602(L_40, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
+		if (!L_41)
+		{
+			goto IL_018a;
+		}
+	}
+	{
+		EmailSphere_t13E3F2253D30B8E1B56D1C74D8758AF65FFAE612* L_42 = V_4;
+		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
+		bool L_43;
+		L_43 = Object_op_Inequality_mD0BE578448EAA61948F25C32F8DD55AB1F778602(L_42, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
+		if (!L_43)
+		{
+			goto IL_018a;
+		}
+	}
+	{
+		EmailSphere_t13E3F2253D30B8E1B56D1C74D8758AF65FFAE612* L_44 = V_4;
+		NullCheck(L_44);
+		bool L_45 = L_44->___focused;
+		if (L_45)
+		{
+			goto IL_018a;
+		}
+	}
+	{
+		//<source_info:/Users/vincentqi/Developer/GitHub/rhack/Assets/Scripts/GestureDebug.cs:128>
+		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_46 = __this->___U3CrbU3E5__4;
+		bool L_47 = __this->___U3CwasKinematicU3E5__5;
+		NullCheck(L_46);
+		Rigidbody_set_isKinematic_m6C3FD3EA358DADA3B191F2449CF1C4F8B22695ED(L_46, L_47, NULL);
 	}
 
-IL_017e:
+IL_018a:
 	{
-		//<source_info:/Users/vincentqi/Developer/GitHub/rhack/Assets/Scripts/GestureDebug.cs:129>
+		//<source_info:/Users/vincentqi/Developer/GitHub/rhack/Assets/Scripts/GestureDebug.cs:131>
 		return (bool)0;
 	}
 }
@@ -27103,35 +27106,6 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Vector3_t24C512C7B96BBABAD472002D
 	{
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_0 = ((Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2_StaticFields*)il2cpp_codegen_static_fields_for(Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2_il2cpp_TypeInfo_var))->___zeroVector;
 		return L_0;
-	}
-}
-// Method Definition Index: 59961
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR float Mathf_SmoothStep_mEFDC738EB0AA162D71013BDBBDD157B080A8E524_inline (float ___0_from, float ___1_to, float ___2_t, const RuntimeMethod* method) 
-{
-	float V_0 = 0.0f;
-	{
-		float L_0 = ___2_t;
-		float L_1;
-		L_1 = Mathf_Clamp01_mA7E048DBDA832D399A581BE4D6DED9FA44CE0F14_inline(L_0, NULL);
-		___2_t = L_1;
-		float L_2 = ___2_t;
-		float L_3 = ___2_t;
-		float L_4 = ___2_t;
-		float L_5 = ___2_t;
-		float L_6 = ___2_t;
-		___2_t = ((float)il2cpp_codegen_add(((float)il2cpp_codegen_multiply(((float)il2cpp_codegen_multiply(((float)il2cpp_codegen_multiply((-2.0f), L_2)), L_3)), L_4)), ((float)il2cpp_codegen_multiply(((float)il2cpp_codegen_multiply((3.0f), L_5)), L_6))));
-		float L_7 = ___1_to;
-		float L_8 = ___2_t;
-		float L_9 = ___0_from;
-		float L_10 = ___2_t;
-		V_0 = ((float)il2cpp_codegen_add(((float)il2cpp_codegen_multiply(L_7, L_8)), ((float)il2cpp_codegen_multiply(L_9, ((float)il2cpp_codegen_subtract((1.0f), L_10))))));
-		goto IL_0030;
-	}
-
-IL_0030:
-	{
-		float L_11 = V_0;
-		return L_11;
 	}
 }
 // Method Definition Index: 131858

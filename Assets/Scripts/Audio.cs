@@ -4,6 +4,7 @@ using UnityEngine.Events;
 using System.Collections;
 using System.Text;
 using System;
+using System.IO;
 // using CandyCoded.Env;
 
 public class Audio : MonoBehaviour
@@ -16,9 +17,8 @@ public class Audio : MonoBehaviour
 
     void Awake()
     {
-        ELEVEN_LABS_API_KEY = "sk_59e17c5ce27e383d0803ee1dbc6cbd596631efae4fd1307a";
-        ELEVEN_LABS_VOICE_ID = "Gfpl8Yo74Is0W6cPUWWT";
-        Debug.Log($"API Key: {ELEVEN_LABS_API_KEY}");
+        LoadElevenLabsConfig();
+        Debug.Log($"API Key loaded: {!string.IsNullOrEmpty(ELEVEN_LABS_API_KEY)}");
         Debug.Log($"Voice ID: {ELEVEN_LABS_VOICE_ID}");
 
         if (instance == null)
@@ -212,5 +212,36 @@ public class Audio : MonoBehaviour
     {
         public float stability;
         public float similarity_boost;
+    }
+
+    [Serializable]
+    private class ElevenLabsConfig
+    {
+        public string api_key;
+        public string voice_id;
+    }
+
+    private static void LoadElevenLabsConfig()
+    {
+        string configPath = Path.Combine(Application.dataPath, "elevenlabs.json");
+        
+        if (!File.Exists(configPath))
+        {
+            Debug.LogError($"elevenlabs.json not found at: {configPath}");
+            Debug.LogError("Please create Assets/elevenlabs.json with: {\"api_key\": \"your_key\", \"voice_id\": \"your_voice_id\"}");
+            return;
+        }
+
+        try
+        {
+            string json = File.ReadAllText(configPath);
+            ElevenLabsConfig config = JsonUtility.FromJson<ElevenLabsConfig>(json);
+            ELEVEN_LABS_API_KEY = config.api_key;
+            ELEVEN_LABS_VOICE_ID = config.voice_id;
+        }
+        catch (Exception e)
+        {
+            Debug.LogError($"Failed to load elevenlabs.json: {e.Message}");
+        }
     }
 }
