@@ -794,7 +794,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
       propertyPath: _trackingOriginType
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
       propertyPath: controllerDrivenHandPosesType
@@ -1235,19 +1235,7 @@ MonoBehaviour:
         m_CallState: 2
   _whenDeactivated:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1878060606}
-        m_TargetAssemblyTypeName: EmailGestures, Assembly-CSharp
-        m_MethodName: EndFist
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   _emitOnFirstUpdate: 1
 --- !u!114 &1114892450 stripped
 MonoBehaviour:
@@ -1906,6 +1894,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   state: {fileID: 1886528248}
+  pubSubManager: {fileID: 0}
 --- !u!114 &1878060607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1931,6 +1920,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EmailGestures
   state: {fileID: 1886528248}
+  pubSubManager: {fileID: 1219688312}
 --- !u!1 &1886528246
 GameObject:
   m_ObjectHideFlags: 0
@@ -1989,37 +1979,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bffe606b408599b4fad696ddc889a943, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1958288825
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1958288826}
-  m_Layer: 0
-  m_Name: ====
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1958288826
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1958288825}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.46796, y: 0.38705, z: 2.79743}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1964602097
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4476,5 +4435,4 @@ SceneRoots:
   - {fileID: 664519899}
   - {fileID: 1878060604}
   - {fileID: 1886528247}
-  - {fileID: 1958288826}
   - {fileID: 1428885828}

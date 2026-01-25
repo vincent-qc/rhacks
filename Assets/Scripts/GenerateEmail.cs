@@ -39,16 +39,14 @@ public class GenerateEmail : MonoBehaviour
     /// <summary>
     /// Generate a full email from brief text.
     /// </summary>
-    public static void Generate(string briefText, Action<string> callback = null)
+    public static void Generate(string briefText, string recipient, Action<string> callback = null)
     {
         EnsureInstance();
-        instance.StartCoroutine(instance.GenerateEmailInternal("Christian", "Vincent", briefText, callback));
+        instance.StartCoroutine(instance.GenerateEmailInternal(recipient, "Vincent", briefText, callback));
     }
 
     private IEnumerator GenerateEmailInternal(string senderName, string userName, string briefText, Action<string> callback)
     {
-        senderName = "Christian";
-        userName = "Vincent";
         if (string.IsNullOrEmpty(apiKey))
         {
             Debug.LogError("[GenerateEmail] API Key not configured");

@@ -295,7 +295,7 @@ public class SpeechRecognition : MonoBehaviour
 
                     // Send to GenerateEmail
                     Debug.Log("[SpeechRecognition] Sending to GenerateEmail...");
-                    GenerateEmail.Generate(transcription, (generatedEmail) =>
+                    GenerateEmail.Generate(transcription, "", (generatedEmail) =>
                     {
                         if (!string.IsNullOrEmpty(generatedEmail))
                         {

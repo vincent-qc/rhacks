@@ -67,15 +67,50 @@ public class EmailManager : MonoBehaviour
                 newSphere.transform.LookAt(Camera.main.transform);
             }
 
+            string senderEmail = ExtractEmailAddress(email.from);
+            string senderName = ExtractSenderName(email.from);
+
             EmailContent content = newSphere.GetComponent<EmailContent>();
             if (content != null)
             {
-                content.Initialize(email.from, email.subject, email.snippet, summary, null, category, priority);
+                content.Initialize(senderName, senderEmail, email.subject, email.snippet, summary, null, category, priority);
             }
-            // Ensure EmailSphere (if needed) does its own Start logic
             EmailSphere sphere = newSphere.GetComponent<EmailSphere>();
-            // If there was any intialization on sphere, do it here. Currently it has none.
         });
+    }
+
+    private string ExtractEmailAddress(string fromField)
+    {
+        if (string.IsNullOrEmpty(fromField)) return "";
+        
+        int startIndex = fromField.IndexOf('<');
+        int endIndex = fromField.IndexOf('>');
+        
+        if (startIndex >= 0 && endIndex > startIndex)
+        {
+            return fromField.Substring(startIndex + 1, endIndex - startIndex - 1);
+        }
+        
+        if (fromField.Contains("@"))
+        {
+            return fromField.Trim();
+        }
+        
+        return fromField;
+    }
+
+    private string ExtractSenderName(string fromField)
+    {
+        if (string.IsNullOrEmpty(fromField)) return "";
+        
+        int startIndex = fromField.IndexOf('<');
+        
+        if (startIndex > 0)
+        {
+            return fromField.Substring(0, startIndex).Trim().Trim('"');
+        }
+        
+        return fromField;
     }
 
     private Vector3 GeneratePosition(EmailAITool.EmailCategory category)

@@ -3,15 +3,11 @@ using UnityEngine.InputSystem;
 using TMPro;
 using System.Collections;
 
-/// <summary>
-/// Email response workflow controller.
-/// Manages UI states: Detecting -> Generating -> Displaying
-/// Activated by EmailCanvas "replying" state to immediately start recording.
-/// </summary>
 public class EmailRespond : MonoBehaviour
 {
     [Header("Email Canvas Integration")]
     [SerializeField] private EmailCanvas emailCanvas;
+    [SerializeField] private EmailContent emailContentRef;
 
     [Header("UI States")]
     [SerializeField] private GameObject DetectingUI;
@@ -27,13 +23,17 @@ public class EmailRespond : MonoBehaviour
     private SpeechRecognition speechRecognition;
     private bool isInitialized = false;
     private bool hasStartedReplyWorkflow = false;
+    private bool isRecording = false;
+    private bool isGenerating = false;
+    private bool isDisplayingDraft = false;
+    private string currentDraftEmail = "";
+
+    public bool IsDisplayingDraft => isDisplayingDraft;
 
     private IEnumerator Start()
     {
-        // Wait a frame to ensure SpeechRecognition has initialized
         yield return null;
 
-        // Get or create SpeechRecognition instance
         speechRecognition = FindFirstObjectByType<SpeechRecognition>();
         if (speechRecognition == null)
         {
@@ -42,7 +42,6 @@ public class EmailRespond : MonoBehaviour
             yield return null;
         }
 
-        // Subscribe to events
         if (speechRecognition.OnRecordingStarted != null)
             speechRecognition.OnRecordingStarted.AddListener(OnRecordingStarted);
         if (speechRecognition.OnRecordingStopped != null)
@@ -52,7 +51,6 @@ public class EmailRespond : MonoBehaviour
         if (speechRecognition.OnError != null)
             speechRecognition.OnError.AddListener(OnError);
 
-        // Initialize all UIs as inactive
         HideAllUI();
 
         if (DisplayingUI != null)
@@ -61,9 +59,11 @@ public class EmailRespond : MonoBehaviour
              if(contentTransform != null) emailContent = contentTransform.GetComponent<TextMeshProUGUI>();
         }
 
-        // Try to find emailCanvas if not assigned
         if (emailCanvas == null)
             emailCanvas = GetComponentInParent<EmailCanvas>();
+
+        if (emailContentRef == null)
+            emailContentRef = GetComponentInParent<EmailContent>();
 
 
         isInitialized = true;
@@ -74,23 +74,20 @@ public class EmailRespond : MonoBehaviour
     {
         if (!isInitialized) return;
 
-        // Check for Reply Trigger from EmailCanvas
         if (emailCanvas != null)
         {
             if (emailCanvas.replying && !hasStartedReplyWorkflow)
             {
                 StartReplyWorkflow();
             }
-            else if (!emailCanvas.replying && hasStartedReplyWorkflow)
+            else if (!emailCanvas.replying && hasStartedReplyWorkflow && !isGenerating)
             {
-                 // Reset if we stopped replying
                  hasStartedReplyWorkflow = false;
                  HideAllUI();
-                 // Optionally cancel recording if in progress?
+                 if (isRecording) SpeechRecognition.StopRecordingAndTranscribe(); 
             }
         }
 
-        // Debug/Fallback controls
         var keyboard = Keyboard.current;
         if (keyboard != null)
         {
@@ -99,27 +96,41 @@ public class EmailRespond : MonoBehaviour
         }
     }
 
+    public void StopRecording()
+    {
+        if (isRecording)
+        {
+            SpeechRecognition.StopRecordingAndTranscribe();
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.name == "Collider")
+        {
+            StopRecording();
+        }
+    }
+
     private void StartReplyWorkflow()
     {
         hasStartedReplyWorkflow = true;
         Debug.Log("[EmailRespond] Reply activated - Starting recording immediately...");
         
-        // Skip confirmation, start recording immediately
         SpeechRecognition.StartRecording();
     }
 
-    // Called by event
     private void OnRecordingStarted()
     {
+        isRecording = true;
         ShowDetectingUI(); 
-        // Note: User requested "end recording" page immediately after swiping. 
-        // "DetectingUI" seems to be the "Listening..." state which usually has the stop button/visuals. 
         Debug.Log("[EmailRespond] Detecting speech...");
     }
 
-    // Called by event
     private void OnRecordingStopped()
     {
+        isRecording = false;
+        isGenerating = true;
         ShowGeneratingUI();
         Debug.Log("[EmailRespond] Generating email response...");
     }
@@ -128,31 +139,82 @@ public class EmailRespond : MonoBehaviour
     {
         UpdateTranscription(text);
 
-        // Generate email will be called automatically by SpeechRecognition logic or manually here
-        GenerateEmail.Generate(text, OnEmailGenerated);
+        string recipient = "";
+        if (emailContentRef != null)
+            recipient = emailContentRef.sender;
+        
+        GenerateEmail.Generate(text, recipient, OnEmailGenerated);
     }
 
     private void OnEmailGenerated(string generatedEmail)
     {
+        isGenerating = false;
         if (!string.IsNullOrEmpty(generatedEmail))
         {
+            isDisplayingDraft = true;
+            currentDraftEmail = generatedEmail;
             ShowDisplayingUI();
             UpdateGeneratedEmail(generatedEmail);
             Debug.Log($"[EmailRespond] Email displayed:\n{generatedEmail}");
         }
         else
         {
-            // Keep previous UI or show error?
             Debug.LogError("[EmailRespond] Failed to generate email");
-             // Maybe go back to detecting or show error state
+            if (emailCanvas != null) emailCanvas.replying = false;
         }
+    }
+
+    public void SendDraft(GCloudPubSubManager pubSubManager)
+    {
+        if (!isDisplayingDraft || string.IsNullOrEmpty(currentDraftEmail))
+        {
+            Debug.LogWarning("[EmailRespond] No draft to send");
+            return;
+        }
+
+        if (emailContentRef == null)
+        {
+            Debug.LogError("[EmailRespond] No email content reference - cannot get recipient");
+            return;
+        }
+
+        string recipientEmail = emailContentRef.senderEmail;
+        string subject = "Re: " + emailContentRef.subject;
+
+        Debug.Log($"[EmailRespond] Sending email to: {recipientEmail}");
+        
+        pubSubManager.SendEmail(recipientEmail, subject, currentDraftEmail, (success, message) =>
+        {
+            if (success)
+            {
+                Debug.Log("[EmailRespond] Email sent successfully!");
+                DiscardDraft();
+            }
+            else
+            {
+                Debug.LogError($"[EmailRespond] Failed to send email: {message}");
+            }
+        });
+    }
+
+    public void DiscardDraft()
+    {
+        Debug.Log("[EmailRespond] Discarding draft");
+        isDisplayingDraft = false;
+        currentDraftEmail = "";
+        hasStartedReplyWorkflow = false;
+        HideAllUI();
+        if (emailCanvas != null) emailCanvas.replying = false;
     }
 
     private void OnError(string error)
     {
+        isRecording = false;
+        isGenerating = false;
         HideAllUI();
         Debug.LogError($"[EmailRespond] Error: {error}");
-        hasStartedReplyWorkflow = false; // Reset to allow trying again
+        hasStartedReplyWorkflow = false;
+        if (emailCanvas != null) emailCanvas.replying = false;
     }
 
     private void HideAllUI()
@@ -207,7 +269,6 @@ public class EmailRespond : MonoBehaviour
 
     private void OnDestroy()
     {
-        // Unsubscribe from events
         if (speechRecognition != null)
         {
             speechRecognition.OnRecordingStarted.RemoveListener(OnRecordingStarted);

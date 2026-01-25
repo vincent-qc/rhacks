@@ -6,6 +6,7 @@ public class EmailContent : MonoBehaviour
     public string subject;
     public string body;
     public string sender;
+    public string senderEmail;
     public string summary;
     public EmailAITool.EmailCategory category;
     public int priority;
@@ -18,18 +19,20 @@ public class EmailContent : MonoBehaviour
   [SerializeField] private TextMeshProUGUI aiSenderText;
   [SerializeField] private TextMeshProUGUI aiTitleText;
 
-  public void Initialize(string sender, string subject, string body)
+  public void Initialize(string sender, string senderEmail, string subject, string body)
     {
         this.sender = sender;
+        this.senderEmail = senderEmail;
         this.subject = subject;
         this.body = body;
 
         UpdateText();
     }
 
-    public void Initialize(string sender, string subject, string body, AudioClip audioClip)
+    public void Initialize(string sender, string senderEmail, string subject, string body, AudioClip audioClip)
     {
         this.sender = sender;
+        this.senderEmail = senderEmail;
         this.subject = subject;
         this.body = body;
 
@@ -40,9 +43,10 @@ public class EmailContent : MonoBehaviour
         UpdateText();
     }
 
-    public void Initialize(string sender, string subject, string body, string summary, AudioClip audioClip, EmailAITool.EmailCategory category, int priority)
+    public void Initialize(string sender, string senderEmail, string subject, string body, string summary, AudioClip audioClip, EmailAITool.EmailCategory category, int priority)
     {
         this.sender = sender;
+        this.senderEmail = senderEmail;
         this.subject = subject;
         this.body = body;
         this.summary = summary;
